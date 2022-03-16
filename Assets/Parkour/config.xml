@@ -1,0 +1,40 @@
+<config>    
+  <!-- 步行速度和奔跑速度  -->
+  <walk_speed>30</walk_speed>
+  <run_speed>150</run_speed>
+  <add_speed>25</add_speed>
+  
+  <!-- 场景个数 -->
+  <runaway_amount>8</runaway_amount>
+
+  <!-- 前面一段步行距离 -->
+  <walk_distance>240</walk_distance>
+
+  <!-- 奔跑多少距离损耗一点正能量 单位米 -->
+  <count_energy>9999999</count_energy>
+  
+  <!-- 最初正能量的值 ,最大能量值 -->
+  <init_energy>8</init_energy>
+  <max_energy>8</max_energy>
+  
+  <!-- 障碍物损耗的正能量的值 -->
+  <obstacle_energy>1</obstacle_energy>
+
+  <!-- 诱惑物体损耗的正能量的值 -->
+  <tempt_object_energy>2</tempt_object_energy>
+  
+  <!-- 有益物体增加的正能量的值 -->
+  <good_object_energy>1</good_object_energy>
+
+  <!-- 障碍物之间相距的最小和最大距离-->
+  <obstacle_min_distance>400</obstacle_min_distance>
+  <obstacle_max_distance>700</obstacle_max_distance>
+
+  <!-- 能量物体之间相距的最小和最大距离-->
+  <energy_min_distance>200</energy_min_distance>
+  <energy_max_distance>700</energy_max_distance>
+
+  <!-- 弹跳高度 40-->
+  <jump_height>35</jump_height>
+
+</config>
