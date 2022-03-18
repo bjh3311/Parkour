@@ -226,8 +226,7 @@ public class Player_control : MonoBehaviour
         #endregion
     }
 
-    //向左移动，播动画
-    public void move_left_animation()
+    public void move_left_animation()//왼쪽으로 가는 함수
     {
 
         //如果不是处于游戏奔跑状态 就直接返回
@@ -265,8 +264,7 @@ public class Player_control : MonoBehaviour
         this.move_statu = Move_statu.Left;
     }
 
-    //向右移动，播动画
-    public void move_right_animation()
+    public void move_right_animation()//오른쪽으로 가는 함수
     {
         //如果不是处于游戏奔跑状态 就直接返回
         if (Game_parameter.game_statu != Game_statu.gaming_run)
