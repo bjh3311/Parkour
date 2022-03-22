@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
             //}
 
             //跑步状态，播放跑步脚步身
-            if (this.move_statu == Move_statu.run_forward)
+            if (this.stat == Status.run_forward)
             {
                 //this.audio_control.player_source.clip = this.audio_control.foot;
                 //this.audio_control.player_source.Play();
@@ -124,14 +124,14 @@ public class Player : MonoBehaviour
                 this.x_move_left = 0;
 
                 //位移状态
-                this.move_statu = Move_statu.run_forward;
+                this.stat = Status.run_forward;
             }
         }
         #endregion
 
 
         #region 控制游戏主角的跳跃
-        if (this.move_statu == Move_statu.Up)
+        if (this.stat == Status.Up)
         {
             float yMove = jumpSpeed * Time.deltaTime;
             // float yMove = 2.5f;
@@ -164,7 +164,7 @@ public class Player : MonoBehaviour
                     this.audio_control.player_source.PlayOneShot(this.audio_control.foot_land, 1f);
 
                     //位移状态
-                    this.move_statu = Move_statu.run_forward;
+                    this.stat = Status.run_forward;
 
                     //是否是向上跳
                     isUp = true;
@@ -213,11 +213,11 @@ public class Player : MonoBehaviour
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("slide"))
         {
             //位移状态
-            this.move_statu = Move_statu.Down;
+            this.stat = Status.Down;
         }
-        else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("run") && this.move_statu == Move_statu.Down)
+        else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("run") && this.stat == Status.Down)
         {
-            this.move_statu = Move_statu.run_forward;
+            this.stat = Status.run_forward;
         }
         #endregion
     }
@@ -242,7 +242,7 @@ public class Player : MonoBehaviour
 
 
         //如果左右移动中,就直接return 
-        if (this.current_way != this.target_way || this.current_way == 0 || this.move_statu != Move_statu.run_forward)
+        if (this.current_way != this.target_way || this.current_way == 0 || this.stat != Status.run_forward)
             return;
 
         //改变跑道
@@ -257,7 +257,7 @@ public class Player : MonoBehaviour
         //this.audio_control.player_source.PlayOneShot(this.audio_control.foot_land, 0.5f);
 
         //位移状态
-        this.move_statu = Move_statu.Left;
+        this.stat = Status.Left;
     }
 
     public void move_right_animation()//오른쪽으로 가는 함수
@@ -278,7 +278,7 @@ public class Player : MonoBehaviour
         }
 
         //如果左右移动中,或者不是处于跑动动画 就直接return    this.animator.GetCurrentAnimatorStateInfo(0).IsName("run") == false
-        if (this.current_way != this.target_way || this.current_way == 2 || this.move_statu != Move_statu.run_forward)
+        if (this.current_way != this.target_way || this.current_way == 2 || this.stat != Status.run_forward)
             return;
 
         //改变跑道
@@ -293,7 +293,7 @@ public class Player : MonoBehaviour
         //this.audio_control.player_source.PlayOneShot(this.audio_control.foot_land, 0.5f);
 
         //位移状态
-        this.move_statu = Move_statu.Right;
+        this.stat = Status.Right;
     }
 
     //向上移动，播动画
@@ -305,7 +305,7 @@ public class Player : MonoBehaviour
 
         //如果游戏物体处于奔跑状态, 给游戏主角一个向上的 ，播放跳跃动画
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("run")
-            && this.move_statu == Move_statu.run_forward)
+            && this.stat == Status.run_forward)
         {
             //播动画
             this.animator.Play("jump");
@@ -315,7 +315,7 @@ public class Player : MonoBehaviour
             // this.audio_control.player_source.PlayOneShot(this.audio_control.foot_land, 0.5f);
 
             //位移状态
-            this.move_statu = Move_statu.Up;
+            this.stat = Status.Up;
         }
     }
 
@@ -327,7 +327,7 @@ public class Player : MonoBehaviour
 
         //如果游戏物体处于奔跑状态, 播放下滑动画动画
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("run")
-           && this.move_statu == Move_statu.run_forward)
+           && this.stat == Status.run_forward)
         {
             //播放滑动动画
             this.animator.Play("slide");
@@ -343,7 +343,7 @@ public class Player : MonoBehaviour
     {
 
         //如果左右移动中,就直接return 
-        if (this.current_way != this.target_way || this.move_statu != Move_statu.run_forward || index == this.current_way)
+        if (this.current_way != this.target_way || this.stat != Status.run_forward || index == this.current_way)
             return;
 
         //右移
