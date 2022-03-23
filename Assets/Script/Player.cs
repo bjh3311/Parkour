@@ -3,7 +3,6 @@ using System.Collections;
 
 public enum Status//상태 
 {
-    walk_forward,
     run_forward,
     kneel,
     stumble,
@@ -15,20 +14,18 @@ public enum Status//상태
 
 public class Player : MonoBehaviour
 {
-    public Animator animator;
-    public Rigidbody rigibody;
+    private Animator animator;
+    /*public Rigidbody rigibody;
     public Audio_control audio_control;
     public Game_parameter game_parameter;
-    public float speed;
-    private float x_speed = 10;                       //x轴上左右移动的速度
-
-    private EnvGenerator env;                   //管理游戏场景的脚本对象
+    */
+    private float x_speed = 10;   //좌우로 움직이는 속도
 
     //控制左右移动的变量
-    public int current_way = 1;                //表示当前道路，从左到右分别是 0，1，2
-    public int target_way = 1;                 //表示要切换到的道路，从左到右分别是 0，1，2
+    public int current_way = 1;                //왼쪽,중앙, 오른쪽 0，1，2
+    public int target_way = 1;                 //왼쪾,중앙, 오른쪽 0，1，2
     private int[] x_offset = { -30, 0, 30 };    //左中右3根道 在x轴上的偏移量
-    private float x_move_left = 0;              //x轴上的剩余偏移量
+    private float x_move_left = 0;              //x축의 나머지 offset
 
     //控制上下移动的变量
     public float jump_height;
@@ -37,31 +34,34 @@ public class Player : MonoBehaviour
     private bool isUp = true;
 
     //主角位移状态
-    public Status stat;
+    private Status stat;//현재 상태
 
     void Start()
     {
         //初始化管理游戏场景的脚本对象
-        this.env = Camera.main.GetComponent<EnvGenerator>();
+        //this.env = Camera.main.GetComponent<EnvGenerator>();
 
         //初始化速度
         // this.speed = this.game_parameter.xml.walk_speed;
 
         //弹跳高度 
-        this.jump_height = Game_parameter.xml.jump_height;
+        //this.jump_height = Game_parameter.xml.jump_height;
 
         //初始化位移状态
-        this.stat = Status.run_forward;
+        stat = Status.run_forward;//시작 할 때는 run forward로
+        animator=this.gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        /*
         if (Game_parameter.game_statu != Game_statu.start_walk && Game_parameter.game_statu != Game_statu.gaming_run && Game_parameter.game_statu != Game_statu.success)
+        {
             return;
-
-        #region 控制人物声音的播放
+        }
+        */
+        /*#region 控制人物声音的播放
         if (!this.audio_control.player_source.isPlaying)
         {
             //todo 步行状态，播放步行脚步身
@@ -85,8 +85,9 @@ public class Player : MonoBehaviour
 
         }
         #endregion
+        */
 
-
+        /*
         #region 控制游戏主角向前的移动
         //让角色一直向前运动
         Vector3 taget_point = env.forest1.GetNextTargetPoint();
@@ -98,38 +99,32 @@ public class Player : MonoBehaviour
 
         this.transform.LookAt(new Vector3(taget_point.x, this.transform.position.y, taget_point.z));
         #endregion
+        */
 
 
-        #region 控制游戏主角左右的移动
-        //如果当前道路与目标道路不一样，就改变道路
+        #region 좌우로 움직임
+        //방향 전환하는 구문 , 한번에 순간이동이 아닌 x_speed만큼 딱딱딱 이동하기 위한 구문이다 
         if (this.current_way != this.target_way)
         {
-
             float move = (this.target_way - this.current_way) * this.x_speed;
 
             this.x_move_left -= move;
-
             this.transform.position = new Vector3(transform.position.x + move, transform.position.y, transform.position.z);
-
             if ((this.x_move_left < 0.5f && (this.target_way - this.current_way > 0)) ||
-                (this.x_move_left > -0.5f && (this.target_way - this.current_way < 0)))
+                (this.x_move_left > -0.5f && (this.target_way - this.current_way < 0)))//다 움직였다면
             {
                 this.transform.position = new Vector3(transform.position.x + this.x_move_left, transform.position.y,
                     transform.position.z);
 
                 //变更当前跑道
-                this.current_way = this.target_way;
-                Game_parameter.current_way = this.current_way;
-
-                this.x_move_left = 0;
-
-                //位移状态
+                this.current_way = this.target_way;//방향을 맞춰준다
                 this.stat = Status.run_forward;
+                //모든 이동이 끝나야만 Left나 Right상태에서 run_forward상태로 만들어준다
             }
         }
         #endregion
 
-
+        /*
         #region 控制游戏主角的跳跃
         if (this.stat == Status.Up)
         {
@@ -177,35 +172,25 @@ public class Player : MonoBehaviour
             this.transform.position = new Vector3(this.transform.position.x, havejump_height, this.transform.position.z);
         }
         #endregion
+        */
 
-
-        #region 按下上下左右键
-
-
-        //方向键上
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+        #region
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))//점프
         {
             this.move_up_animation();
         }
-        //方向键下
-        else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))//슬라이드
         {
             this.move_down_animation();
-
         }
-        //方向键左
-        else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))//왼쪽
         {
-
             this.move_left_animation();
         }
-        //方向键右
-        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))//오른쪽
         {
             this.move_right_animation();
         }
-
-
         #endregion
 
 
@@ -225,11 +210,19 @@ public class Player : MonoBehaviour
     public void move_left_animation()//왼쪽으로 가는 함수
     {
 
-        //如果不是处于游戏奔跑状态 就直接返回
-        if (Game_parameter.game_statu != Game_statu.gaming_run)
+        if (stat!= Status.run_forward)//달리고 있을때만 왼쪽으로 갈 수 있다
+        {
             return;
-
-        //如果处于转弯那一段 就不左右移动
+        }
+        if(current_way==0)//가장 왼쪽에 붙어있으면 종료시킨다
+        {
+            return;
+        }
+        if (this.current_way != this.target_way)//target에 도착한것이 아니면 종료시킨다
+        {
+            return;
+        }
+        /*
         GameObject gebi = GameObject.FindGameObjectWithTag("gebi");
         if (gebi != null)
         {
@@ -239,35 +232,42 @@ public class Player : MonoBehaviour
                 Game_parameter.distance < (gebi_z - 3000 + 1000))
                 return;
         }
-
-
+        */
         //如果左右移动中,就直接return 
-        if (this.current_way != this.target_way || this.current_way == 0 || this.stat != Status.run_forward)
-            return;
-
         //改变跑道
-        this.target_way--;
+        this.target_way--;//왼쪽으로 가는거니 target_way를 하나 빼준다
         this.x_move_left = this.x_offset[0];
 
-        //播放动画
-        this.animator.Play("run_left");
+        animator.Play("run_left");//한번만 실행시켜준다
 
         //播声音
-        this.audio_control.player_source.PlayOneShot(this.audio_control.left_right, 3f);
+        //this.audio_control.player_source.PlayOneShot(this.audio_control.left_right, 3f);
         //this.audio_control.player_source.PlayOneShot(this.audio_control.foot_land, 0.5f);
 
-        //位移状态
         this.stat = Status.Left;
     }
 
     public void move_right_animation()//오른쪽으로 가는 함수
     {
-        //如果不是处于游戏奔跑状态 就直接返回
+        /* 게임상태가 실행중이 아니라면, 즉 GameOver거나 등등 이면 실행시키지 않는다
         if (Game_parameter.game_statu != Game_statu.gaming_run)
             return;
+        */
+        if (stat!= Status.run_forward)//달리고 있을때만 오른쪽으로 갈 수 있다
+        {
+            return;
+        }
+        if(current_way==2)//가장 오른쪽에 붙어있으면 종료시킨다
+        {
+            return;
+        }
+        if (this.current_way != this.target_way)//target에 도착이 끝나기전에는 못 바꾼다
+        {
+            return;
+        }
 
-        //如果处于转弯那一段 就不左右移动
-        GameObject gebi = GameObject.FindGameObjectWithTag("gebi");
+        //오른쪽턴,왼쪽턴에 있으면 움직이면 안된다 
+        /*GameObject gebi = GameObject.FindGameObjectWithTag("gebi");
         if (gebi != null)
         {
             float gebi_z = gebi.transform.position.z;
@@ -275,24 +275,19 @@ public class Player : MonoBehaviour
             if (Game_parameter.distance > (gebi_z - 3000 + 300) &&
                 Game_parameter.distance < (gebi_z - 3000 + 1000))
                 return;
-        }
-
-        //如果左右移动中,或者不是处于跑动动画 就直接return    this.animator.GetCurrentAnimatorStateInfo(0).IsName("run") == false
-        if (this.current_way != this.target_way || this.current_way == 2 || this.stat != Status.run_forward)
-            return;
-
-        //改变跑道
+        }*/
+        //오른쪽으로 가는것이니 target_way를 ++해준다
         this.target_way++;
         this.x_move_left = this.x_offset[2];
 
-        //播放动画
+        //오른쪽으로 가는 애니메이션을 한번만 실행시켜준다
         this.animator.Play("run_right");
 
         //播声音
-        this.audio_control.player_source.PlayOneShot(this.audio_control.left_right, 3f);
+        //this.audio_control.player_source.PlayOneShot(this.audio_control.left_right, 3f);
         //this.audio_control.player_source.PlayOneShot(this.audio_control.foot_land, 0.5f);
 
-        //位移状态
+        //상태를 Right로 만들어준다
         this.stat = Status.Right;
     }
 
@@ -311,7 +306,7 @@ public class Player : MonoBehaviour
             this.animator.Play("jump");
 
             //播声音
-            this.audio_control.player_source.PlayOneShot(this.audio_control.jump, 3f);
+            //this.audio_control.player_source.PlayOneShot(this.audio_control.jump, 3f);
             // this.audio_control.player_source.PlayOneShot(this.audio_control.foot_land, 0.5f);
 
             //位移状态
@@ -333,7 +328,7 @@ public class Player : MonoBehaviour
             this.animator.Play("slide");
 
             //播声音
-            this.audio_control.player_source.PlayOneShot(this.audio_control.slide, 3f);
+            //this.audio_control.player_source.PlayOneShot(this.audio_control.slide, 3f);
             //this.audio_control.player_source.PlayOneShot(this.audio_control.foot_land, 0.5f);
         }
     }
