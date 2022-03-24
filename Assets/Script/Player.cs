@@ -23,14 +23,14 @@ public class Player : MonoBehaviour
 
     //控制左右移动的变量
     public int current_way = 1;                //왼쪽,중앙, 오른쪽 0，1，2
-    public int target_way = 1;                 //왼쪾,중앙, 오른쪽 0，1，2
+    public int target_way = 1;                 //왼쪽,중앙, 오른쪽 0，1，2
     private int[] x_offset = { -30, 0, 30 };    //左中右3根道 在x轴上的偏移量
     private float x_move_left = 0;              //x축의 나머지 offset
 
     //控制上下移动的变量
-    public float jump_height;
+    public float jump_height;//점프높이
     public float jumpSpeed = 80;
-    private float havejump_height = 0;
+    private float havejump_height = 0;//이미 점프한 높이
     private bool isUp = true;
 
     //主角位移状态
@@ -124,26 +124,23 @@ public class Player : MonoBehaviour
         }
         #endregion
 
-        /*
-        #region 控制游戏主角的跳跃
+        #region 점프를한다
         if (this.stat == Status.Up)
         {
             float yMove = jumpSpeed * Time.deltaTime;
             // float yMove = 2.5f;
             if (isUp)
             {
-                if ((jump_height - havejump_height) < 0.5f || this.transform.position.y > (this.jump_height + 0.5f))
+                if ((jump_height - havejump_height) < 0.5f || this.transform.position.y > (this.jump_height + 0.5f))//고점에 다다르면
                 {
                     this.transform.position = new Vector3(this.transform.position.x, this.jump_height, this.transform.position.z);
                     //this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + (jump_height - havejump_height), this.transform.position.z);  
                     isUp = false;
-                    havejump_height = jump_height;//已经达到最大高度，将高度赋值
+                    havejump_height = jump_height;//최대 높이에 도달하였다
                     this.transform.position = new Vector3(transform.position.x, jump_height, transform.position.z);
                     //this.transform.position = new Vector3(this.transform.position.x, havejump_height, this.transform.position.z);
-
                     return;
                 }
-
                 havejump_height += yMove;
             }
             else
@@ -154,9 +151,8 @@ public class Player : MonoBehaviour
 
                     havejump_height = 0;//已经达到最小高度，将高度赋值
 
-
                     //播放落地的脚步声
-                    this.audio_control.player_source.PlayOneShot(this.audio_control.foot_land, 1f);
+                    //this.audio_control.player_source.PlayOneShot(this.audio_control.foot_land, 1f);
 
                     //位移状态
                     this.stat = Status.run_forward;
@@ -168,11 +164,9 @@ public class Player : MonoBehaviour
                 }
                 havejump_height -= yMove;
             }
-
             this.transform.position = new Vector3(this.transform.position.x, havejump_height, this.transform.position.z);
         }
         #endregion
-        */
 
         #region
         if (Input.GetKeyDown(KeyCode.W))//점프
@@ -309,21 +303,18 @@ public class Player : MonoBehaviour
         this.stat = Status.Right;
     }
 
-    //向上移动，播动画
+    //점프하는 함수
     public void move_up_animation()
     {
         //run상태일 때만 점프를 할 수 있다
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("run") && this.stat == Status.run_forward)
         {
-            //播动画
+            //점프 모션을 한번 취한다
             this.animator.Play("jump");
-
-            //播声音
             //this.audio_control.player_source.PlayOneShot(this.audio_control.jump, 3f);
             // this.audio_control.player_source.PlayOneShot(this.audio_control.foot_land, 0.5f);
-
-            //位移状态
             this.stat = Status.Up;
+            //상태를 Up으로 바꿔준다
         }
     }
 
