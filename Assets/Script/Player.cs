@@ -175,13 +175,31 @@ public class Player : MonoBehaviour
         */
 
         #region
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))//점프
+        if (Input.GetKeyDown(KeyCode.W))//점프
         {
             this.move_up_animation();
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))//슬라이드
+        else if (Input.GetKey(KeyCode.S))//슬라이드는 누르는동안 계속 실행
         {
-            this.move_down_animation();
+            //run상태일 때만 slide를 할 수 있다.
+            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("run")&& this.stat == Status.run_forward)
+            {
+                //
+                this.animator.SetBool("isSlide",true);
+                //this.audio_control.player_source.PlayOneShot(this.audio_control.slide, 3f);
+                //this.audio_control.player_source.PlayOneShot(this.audio_control.foot_land, 0.5f);
+            }
+        }
+        else if(Input.GetKeyUp(KeyCode.S))//슬라이드버튼을 떼어 냈을 때
+        {
+            //slide 상태일 때만 작동
+            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("slide")&& this.stat == Status.Down)
+            {
+                this.animator.SetBool("isSlide",false);
+                Debug.Log("S키 떼어냄");
+                //this.audio_control.player_source.PlayOneShot(this.audio_control.slide, 3f);
+                //this.audio_control.player_source.PlayOneShot(this.audio_control.foot_land, 0.5f);
+            }
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))//왼쪽
         {
@@ -194,7 +212,7 @@ public class Player : MonoBehaviour
         #endregion
 
 
-        #region 位移状态由动画决定
+        #region 누워있을때의 상태변환 함수
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("slide"))
         {
             //位移状态
@@ -294,13 +312,8 @@ public class Player : MonoBehaviour
     //向上移动，播动画
     public void move_up_animation()
     {
-
-        if (Game_parameter.game_statu != Game_statu.gaming_run)
-            return;
-
-        //如果游戏物体处于奔跑状态, 给游戏主角一个向上的 ，播放跳跃动画
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("run")
-            && this.stat == Status.run_forward)
+        //run상태일 때만 점프를 할 수 있다
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("run") && this.stat == Status.run_forward)
         {
             //播动画
             this.animator.Play("jump");
@@ -314,23 +327,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    //向下移动，播动画
+    //슬라이드 하는 함수
     public void move_down_animation()
     {
-        if (Game_parameter.game_statu != Game_statu.gaming_run)
-            return;
-
-        //如果游戏物体处于奔跑状态, 播放下滑动画动画
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("run")
-           && this.stat == Status.run_forward)
-        {
-            //播放滑动动画
-            this.animator.Play("slide");
-
-            //播声音
-            //this.audio_control.player_source.PlayOneShot(this.audio_control.slide, 3f);
-            //this.audio_control.player_source.PlayOneShot(this.audio_control.foot_land, 0.5f);
-        }
+        
     }
 
     //变道的函数
