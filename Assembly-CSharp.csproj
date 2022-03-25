@@ -54,6 +54,7 @@
      <Compile Include="Assets\Parkour\script\test\alpha_test.cs" />
      <Compile Include="Assets\Parkour\script\test\switch_sence_test.cs" />
      <Compile Include="Assets\Parkour\script\test\test_camera.cs" />
+     <Compile Include="Assets\Script\CameraChase.cs" />
      <Compile Include="Assets\Script\Player.cs" />
      <None Include="Assets\Parkour\prefab\role\Materials\2-sided Alpha Cutout.shader" />
      <None Include="Assets\Parkour\config.xml" />

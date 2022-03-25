@@ -15,10 +15,12 @@ public enum Status//상태
 public class Player : MonoBehaviour
 {
     private Animator animator;
-    /*public Rigidbody rigibody;
+
+    /*public Rigidbody rb;
+
     public Audio_control audio_control;
-    public Game_parameter game_parameter;
-    */
+    public Game_parameter game_parameter;*/
+    
     private float x_speed = 10;   //좌우로 움직이는 속도
 
     //控制左右移动的变量
@@ -107,7 +109,6 @@ public class Player : MonoBehaviour
         if (this.current_way != this.target_way)
         {
             float move = (this.target_way - this.current_way) * this.x_speed;
-
             this.x_move_left -= move;
             this.transform.position = new Vector3(transform.position.x + move, transform.position.y, transform.position.z);
             if ((this.x_move_left < 0.5f && (this.target_way - this.current_way > 0)) ||
@@ -162,6 +163,7 @@ public class Player : MonoBehaviour
 
                     return;
                 }
+                yMove=yMove+1.5f;
                 havejump_height -= yMove;
             }
             this.transform.position = new Vector3(this.transform.position.x, havejump_height, this.transform.position.z);
