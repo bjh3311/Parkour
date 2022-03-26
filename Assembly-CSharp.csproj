@@ -38,7 +38,6 @@
   <ItemGroup>
      <Compile Include="Assets\Parkour\script\Basic_setting.cs" />
      <Compile Include="Assets\Parkour\script\XML.cs" />
-     <Compile Include="Assets\Parkour\script\gaming\Audio_control.cs" />
      <Compile Include="Assets\Parkour\script\gaming\Big_collider.cs" />
      <Compile Include="Assets\Parkour\script\gaming\Blink.cs" />
      <Compile Include="Assets\Parkour\script\gaming\EnvGenerator.cs" />
@@ -54,6 +53,7 @@
      <Compile Include="Assets\Parkour\script\test\alpha_test.cs" />
      <Compile Include="Assets\Parkour\script\test\switch_sence_test.cs" />
      <Compile Include="Assets\Parkour\script\test\test_camera.cs" />
+     <Compile Include="Assets\Script\Audio_control.cs" />
      <Compile Include="Assets\Script\CameraChase.cs" />
      <Compile Include="Assets\Script\Player.cs" />
      <None Include="Assets\Parkour\prefab\role\Materials\2-sided Alpha Cutout.shader" />

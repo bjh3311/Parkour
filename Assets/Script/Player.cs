@@ -16,10 +16,13 @@ public class Player : MonoBehaviour
 {
     private Animator animator;
 
-    /*public Rigidbody rb;
+    
 
     public Audio_control audio_control;
-    public Game_parameter game_parameter;*/
+    
+    /*
+    public Game_parameter game_parameter;
+    public Rigidbody rb;*/
     
     private float x_speed = 10;   //좌우로 움직이는 속도
 
@@ -63,7 +66,7 @@ public class Player : MonoBehaviour
             return;
         }
         */
-        /*#region 控制人物声音的播放
+        /*#region 캐릭터 음성 재생 제어
         if (!this.audio_control.player_source.isPlaying)
         {
             //todo 步行状态，播放步行脚步身
@@ -152,9 +155,6 @@ public class Player : MonoBehaviour
 
                     havejump_height = 0;//已经达到最小高度，将高度赋值
 
-                    //播放落地的脚步声
-                    //this.audio_control.player_source.PlayOneShot(this.audio_control.foot_land, 1f);
-
                     //位移状态
                     this.stat = Status.run_forward;
 
@@ -180,10 +180,11 @@ public class Player : MonoBehaviour
             //run상태일 때만 slide를 할 수 있다.
             if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("run")&& this.stat == Status.run_forward)
             {
-                //
+                
                 this.animator.SetBool("isSlide",true);
-                //this.audio_control.player_source.PlayOneShot(this.audio_control.slide, 3f);
-                //this.audio_control.player_source.PlayOneShot(this.audio_control.foot_land, 0.5f);
+                this.audio_control.player_source.clip=this.audio_control.slide;
+                this.audio_control.player_source.loop=true;//슬라이드 하는동안엔 계속 소리가 들려야한다
+                this.audio_control.player_source.Play();
             }
         }
         else if(Input.GetKeyUp(KeyCode.S))//슬라이드버튼을 떼어 냈을 때
@@ -192,9 +193,8 @@ public class Player : MonoBehaviour
             if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("slide")&& this.stat == Status.Down)
             {
                 this.animator.SetBool("isSlide",false);
-                Debug.Log("S키 떼어냄");
-                //this.audio_control.player_source.PlayOneShot(this.audio_control.slide, 3f);
-                //this.audio_control.player_source.PlayOneShot(this.audio_control.foot_land, 0.5f);
+                this.audio_control.player_source.clip=null;
+                this.audio_control.player_source.loop=false;//슬라이드가 끝나면 loop를 꺼준다
             }
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))//왼쪽
@@ -254,10 +254,10 @@ public class Player : MonoBehaviour
 
         animator.Play("run_left");//한번만 실행시켜준다
 
-        //播声音
-        //this.audio_control.player_source.PlayOneShot(this.audio_control.left_right, 3f);
-        //this.audio_control.player_source.PlayOneShot(this.audio_control.foot_land, 0.5f);
-
+        
+        this.audio_control.player_source.clip=this.audio_control.left_right;
+        this.audio_control.player_source.Play();
+        
         this.stat = Status.Left;
     }
 
@@ -297,9 +297,8 @@ public class Player : MonoBehaviour
         //오른쪽으로 가는 애니메이션을 한번만 실행시켜준다
         this.animator.Play("run_right");
 
-        //播声音
-        //this.audio_control.player_source.PlayOneShot(this.audio_control.left_right, 3f);
-        //this.audio_control.player_source.PlayOneShot(this.audio_control.foot_land, 0.5f);
+        this.audio_control.player_source.clip=this.audio_control.left_right;
+        this.audio_control.player_source.Play();
 
         //상태를 Right로 만들어준다
         this.stat = Status.Right;
@@ -313,20 +312,15 @@ public class Player : MonoBehaviour
         {
             //점프 모션을 한번 취한다
             this.animator.Play("jump");
-            //this.audio_control.player_source.PlayOneShot(this.audio_control.jump, 3f);
-            // this.audio_control.player_source.PlayOneShot(this.audio_control.foot_land, 0.5f);
+            this.audio_control.player_source.clip=this.audio_control.jump;
+            this.audio_control.player_source.Play();
             this.stat = Status.Up;
             //상태를 Up으로 바꿔준다
         }
     }
 
-    //슬라이드 하는 함수
-    public void move_down_animation()
-    {
-        
-    }
-
     //变道的函数
+    /*
     public void change_runway(int index)
     {
 
@@ -346,4 +340,5 @@ public class Player : MonoBehaviour
             this.move_left_animation();
         }
     }
+    */
 }
