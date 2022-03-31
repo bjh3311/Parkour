@@ -8,7 +8,7 @@ public class MapMove : MonoBehaviour
 
     private void Update() 
     {
-        //mapSpeed만큼 -x축으로 이동
+        //mapSpeed만큼 -z축으로 이동
         transform.Translate(0,0,-mapSpeed*Time.deltaTime);//z축으로 이동
     }
 }
