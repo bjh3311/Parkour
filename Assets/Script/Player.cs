@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
     private bool isUp = true;
 
     //主角位移状态
-    private Status stat;//현재 상태
+    public Status stat;//현재 상태
 
     void Start()
     {

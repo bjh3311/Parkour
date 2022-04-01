@@ -1,43 +1,43 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Big_collider : MonoBehaviour
+public class Bigcollider : MonoBehaviour
 {
-    public Player_control play_control;
+    public Player play_control;
     public Animator animator;
-    public Texture2D[] textures;
+    //public Texture2D[] textures;
     public Audio_control audio_control;
 
-    public Texture2D[] blink_textures;
+    //public Texture2D[] blink_textures;
 
-    private Move_statu move_statu;
+    private Status stat;
 
 
-    void Start() {
-
-        this.move_statu = play_control.move_statu;
+    private void FixedUpdate()
+    {
+        this.stat = play_control.stat;
     }
+    
+
     private void OnTriggerEnter(Collider other)
     {
-
         //todo 如果碰撞到了 0.播动画  1.减正能量
-        if (Game_parameter.game_statu == Game_statu.gaming_run )
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("slide") == false && this.stat != Status.Down)//슬라이드가 아니어야 한다
         {
-            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("slide") == false && this.move_statu != Move_statu.Down)
+            //如果撞到障碍物
+            if(other.tag == "Obs")
             {
-                //如果撞到障碍物
-                if(other.tag == "Obs"){
-                    //0.减正能量
-                    Game_parameter.energy-=Game_parameter.xml.obstacle_energy;
-                    
-                    //1. 播动画
-                    if (Game_parameter.energy > 0)
-                        this.animator.Play("stumble");
-
-                    //播被撞到的声音
-                    this.audio_control.other_source.PlayOneShot(audio_control.hit,3f);
+                //에너지를 깍는다
+                //Game_parameter.energy-=Game_parameter.xml.obstacle_energy;
+                //1. 播动画
+                //if (Game_parameter.energy > 0)
+                {
+                    this.animator.Play("stumble");
                 }
-
+                //맞는 효과음 낸다
+                this.audio_control.other_source.PlayOneShot(audio_control.hit,3f);
+            }
+            /*
                 //碰到了诱惑性物体
                 else if (other.tag == "tempt") {
 
@@ -116,7 +116,8 @@ public class Big_collider : MonoBehaviour
                     //1. 移除当前能量物体 
                     Destroy(other.gameObject);
                 }
+                */
             }
-        }
+        
     }
 }

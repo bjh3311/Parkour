@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Big_collider : MonoBehaviour
+public class SmallCollider : MonoBehaviour
 {
+
     public Player_control play_control;
     public Animator animator;
     public Texture2D[] textures;
@@ -12,35 +13,37 @@ public class Big_collider : MonoBehaviour
 
     private Move_statu move_statu;
 
-
-    void Start() {
-
+    void Start()
+    {
         this.move_statu = play_control.move_statu;
     }
+
     private void OnTriggerEnter(Collider other)
     {
-
-        //todo 如果碰撞到了 0.播动画  1.减正能量
-        if (Game_parameter.game_statu == Game_statu.gaming_run )
+        //如果碰撞到了 0.播动画  1.减正能量
+        if (Game_parameter.game_statu == Game_statu.gaming_run)
         {
-            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("slide") == false && this.move_statu != Move_statu.Down)
+            if (this.move_statu == Move_statu.Down || this.animator.GetCurrentAnimatorStateInfo(0).IsName("slide") == true)
             {
-                //如果撞到障碍物
-                if(other.tag == "Obs"){
+
+                //如果碰到障碍物
+                if (other.tag == "Obs")
+                {
                     //0.减正能量
-                    Game_parameter.energy-=Game_parameter.xml.obstacle_energy;
-                    
+                    Game_parameter.energy -= Game_parameter.xml.obstacle_energy;
+
+                    //播被撞到的声音
+                    this.audio_control.other_source.PlayOneShot(audio_control.hit, 3f);
+
                     //1. 播动画
                     if (Game_parameter.energy > 0)
                         this.animator.Play("stumble");
-
-                    //播被撞到的声音
-                    this.audio_control.other_source.PlayOneShot(audio_control.hit,3f);
                 }
 
-                //碰到了诱惑性物体
-                else if (other.tag == "tempt") {
 
+                //碰到了诱惑性物体
+                else if (other.tag == "tempt")
+                {
                     //0.减正能量
                     Game_parameter.energy -= Game_parameter.xml.tempt_energy;
 
@@ -55,9 +58,10 @@ public class Big_collider : MonoBehaviour
                     Blink blink = new Blink(blink_textures);
                     Game_parameter.blink_list.Add(blink);
 
+
                     //诱惑物体消失
                     Destroy(other.gameObject);
-                    
+
                 }
 
 
