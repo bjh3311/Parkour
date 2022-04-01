@@ -30,7 +30,7 @@ public class Big_collider : MonoBehaviour
                 if(other.tag == "Obs"){
                     //0.减正能量
                     Game_parameter.energy-=Game_parameter.xml.obstacle_energy;
-
+                    Debug.Log("슬라이드상태이기 때문에 따로 에너지가 깍이진 않는다. 하지만 접촉하긴 했다");
                     //1. 播动画
                     if (Game_parameter.energy > 0)
                         this.animator.Play("stumble");

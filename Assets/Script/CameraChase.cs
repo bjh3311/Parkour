@@ -59,7 +59,7 @@ public class CameraChase : MonoBehaviour
 
             // targetPosition = new Vector3(targetPosition.x, 50, targetPosition.z);
 
-            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * run_speed);
+            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * run_speed*3f);
             //transform.rotation = Quaternion.LookRotation(new Vector3(player_transform.position.x, transform.position.y-20f, player_transform.position.z) - transform.position, Vector3.up);
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(player_transform.position.x, transform.position.y - 20f, player_transform.position.z)
                 - transform.position), 1 * Time.deltaTime);

@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     //控制左右移动的变量
     public int current_way = 1;                //왼쪽,중앙, 오른쪽 0，1，2
     public int target_way = 1;                 //왼쪽,중앙, 오른쪽 0，1，2
-    private int[] x_offset = { -30, 0, 30 };    //左中右3根道 在x轴上的偏移量
+    private int[] x_offset = { -50, 0, 50 };    //左中右3根道 在x轴上的偏移量
     private float x_move_left = 0;              //x축의 나머지 offset
 
     //控制上下移动的变量
