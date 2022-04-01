@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bigcollider : MonoBehaviour
+public class BigCollider : MonoBehaviour
 {
     public Player play_control;
     public Animator animator;
@@ -13,7 +13,7 @@ public class Bigcollider : MonoBehaviour
     private Status stat;
 
 
-    private void FixedUpdate()
+    private void FixedUpdate()//플레이어의 상태를 계속 받아준다
     {
         this.stat = play_control.stat;
     }
@@ -35,7 +35,7 @@ public class Bigcollider : MonoBehaviour
                     this.animator.Play("stumble");
                 }
                 //맞는 효과음 낸다
-                this.audio_control.other_source.PlayOneShot(audio_control.hit,3f);
+                this.audio_control.player_source.PlayOneShot(audio_control.hit,3f);
             }
             /*
                 //碰到了诱惑性物体
