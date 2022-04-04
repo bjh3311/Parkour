@@ -4,42 +4,36 @@ using System.Collections;
 public class SmallCollider : MonoBehaviour
 {
 
-    public Player_control play_control;
+    public Player play_control;
     public Animator animator;
-    public Texture2D[] textures;
+    //public Texture2D[] textures;
     public Audio_control audio_control;
 
-    public Texture2D[] blink_textures;
+    //public Texture2D[] blink_textures;
 
-    private Move_statu move_statu;
+    private Status stat;
 
-    void Start()
+    private void FixedUpdate()//플레이어의 상태를 계속 받아준다
     {
-        this.move_statu = play_control.move_statu;
+        this.stat = play_control.stat;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        //如果碰撞到了 0.播动画  1.减正能量
-        if (Game_parameter.game_statu == Game_statu.gaming_run)
+        
+        if (this.stat == Status.Down || this.animator.GetCurrentAnimatorStateInfo(0).IsName("slide") == true)//슬라이드 중일때
         {
-            if (this.move_statu == Move_statu.Down || this.animator.GetCurrentAnimatorStateInfo(0).IsName("slide") == true)
+            //如果碰到障碍物
+            if (other.tag == "Obs")
             {
+                //0.减正能量
+                //Game_parameter.energy -= Game_parameter.xml.obstacle_energy;
 
-                //如果碰到障碍物
-                if (other.tag == "Obs")
-                {
-                    //0.减正能量
-                    Game_parameter.energy -= Game_parameter.xml.obstacle_energy;
-
-                    //播被撞到的声音
-                    this.audio_control.other_source.PlayOneShot(audio_control.hit, 3f);
-
-                    //1. 播动画
-                    if (Game_parameter.energy > 0)
-                        this.animator.Play("stumble");
-                }
-
+                //播被撞到的声音
+                this.audio_control.other_source.PlayOneShot(audio_control.hit, 3f);
+                //누워 있다가 갑자기 일어나서 아픈척하는게 좀 어색해서 걍 소리만 내는걸로
+            }
+            /*
 
                 //碰到了诱惑性物体
                 else if (other.tag == "tempt")
@@ -120,7 +114,9 @@ public class SmallCollider : MonoBehaviour
                     //1. 移除当前能量物体 
                     Destroy(other.gameObject);
                 }
+                */
             }
-        }
+            
+        
     }
 }

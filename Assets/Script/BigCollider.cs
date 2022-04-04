@@ -23,7 +23,7 @@ public class BigCollider : MonoBehaviour
     {
         //todo 如果碰撞到了 0.播动画  1.减正能量
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("slide") == false && this.stat != Status.Down)//슬라이드가 아니어야 한다
-        {
+        {//BigCollider는 상체쪽에 위치한다. BigCollider가 대나무와 만났는데 슬라이드중이면 피한걸로 해야 한다.
             //如果撞到障碍物
             if(other.tag == "Obs")
             {
