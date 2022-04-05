@@ -32,7 +32,7 @@ public class Game_parameter : MonoBehaviour
     public bool is_choose = false;                 //是否进行选择        
 
     // Use this for initialization
-    void Awake()
+    void Awake()//싱글톤 패턴으로 구현
     {
 
         //实例化xml对象
@@ -71,7 +71,7 @@ public class Game_parameter : MonoBehaviour
         //已经生成了多少跑道
         Game_parameter.runway_count = 2;
 
-        //玩家已经奔跑的距离
+        //玩家已经奔跑的距离ㄹ
         Game_parameter.distance = 0;
 
         //当前跑道编号

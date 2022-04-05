@@ -26,8 +26,8 @@ public class SmallCollider : MonoBehaviour
             //如果碰到障碍物
             if (other.tag == "Obs")
             {
-                //0.减正能量
-                //Game_parameter.energy -= Game_parameter.xml.obstacle_energy;
+                //에너지를 깍는다
+                GameManager.energy -= 40f;
 
                 //播被撞到的声音
                 this.audio_control.other_source.PlayOneShot(audio_control.hit, 3f);

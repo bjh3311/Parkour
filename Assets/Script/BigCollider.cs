@@ -28,9 +28,8 @@ public class BigCollider : MonoBehaviour
             if(other.tag == "Obs")
             {
                 //에너지를 깍는다
-                //Game_parameter.energy-=Game_parameter.xml.obstacle_energy;
-                //1. 播动画
-                //if (Game_parameter.energy > 0)
+                GameManager.energy-=40f;
+                if (GameManager.energy > 0)
                 {
                     this.animator.Play("stumble");
                 }
