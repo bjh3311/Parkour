@@ -136,7 +136,7 @@ public class GUI_layer : MonoBehaviour
             if (this.count < 90 && this.count > 10)
             {
                 GUI.DrawTexture(new Rect(Camera.main.pixelWidth / 4, Camera.main.pixelHeight / 5,
-                Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2), num_3);
+                Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2), num_3);//중앙에 숫자 3을 보인다
 
 
                 if (this.count == 11)
