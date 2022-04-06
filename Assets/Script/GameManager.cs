@@ -12,10 +12,17 @@ public class GameManager : MonoBehaviour
     public Animator animator;              //游戏主角的动画控制器
     public RectTransform EnergyBar;//에너지 바 
 
+    private static int count;
+
+    public Texture num_3;
+    public Texture num_2;
+    public Texture num_1;
+
     // Use this for initialization
     void Awake()//싱글톤 패턴으로 구현
     {
         GameManager.energy=200f;
+        count=0;
     }
     //游戏逻辑
     void Update()
@@ -36,6 +43,41 @@ public class GameManager : MonoBehaviour
             this.animator.SetBool("isSlide", false);
             this.animator.SetBool("isFail", true);
             //패배 오디오
+        }
+        #endregion
+    }
+    private void OnGUI() 
+    {
+        //3,2,1 
+        #region
+        count++;
+        if (count < 130 && count > 30)
+        {
+            GUI.DrawTexture(new Rect(Camera.main.pixelWidth / 4, Camera.main.pixelHeight / 5,
+            Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2), num_3);//중앙에 숫자 3을 보인다
+            if (count == 31)
+            {
+                this.audio_control.other_source.PlayOneShot(this.audio_control.di, 1f);
+            }
+        }
+        else if (count > 130 && count < 230)
+        {
+            GUI.DrawTexture(new Rect(Camera.main.pixelWidth / 4, Camera.main.pixelHeight / 5,
+            Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2), num_2);
+
+            if (count == 131)
+            {
+                this.audio_control.other_source.PlayOneShot(this.audio_control.di, 1f);
+            }
+        }
+        else if (count > 230 && count < 330)
+        {
+            GUI.DrawTexture(new Rect(Camera.main.pixelWidth / 4, Camera.main.pixelHeight / 5,
+            Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2), num_1);
+            if (count == 231)
+            {
+                    this.audio_control.other_source.PlayOneShot(this.audio_control.di, 1f);
+            }
         }
         #endregion
     }
