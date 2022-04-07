@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public Texture num_2;
     public Texture num_1;
 
+    public MapMove map;
     // Use this for initialization
     void Awake()//싱글톤 패턴으로 구현
     {
@@ -27,7 +28,6 @@ public class GameManager : MonoBehaviour
     //游戏逻辑
     void Update()
     {
-        
         #region Energy
         EnergyBar.sizeDelta=new Vector2(energy,30);
         if (GameManager.energy <= 0)
@@ -42,19 +42,19 @@ public class GameManager : MonoBehaviour
             //패배 애니메이션
             this.animator.SetBool("isSlide", false);
             this.animator.SetBool("isFail", true);
-            //패배 오디오
+            map.mapSpeed=Mathf.Lerp(map.mapSpeed,0,0.04f);//천천히 맵을 정지시킨다
         }
         #endregion
     }
     private void OnGUI() 
     {
-        //3,2,1 
+        //3,2,1 카운트 다운
         #region
         count++;
         if (count < 130 && count > 30)
         {
             GUI.DrawTexture(new Rect(Camera.main.pixelWidth / 4, Camera.main.pixelHeight / 5,
-            Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2), num_3);//중앙에 숫자 3을 보인다
+            Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2), num_3);
             if (count == 31)
             {
                 this.audio_control.other_source.PlayOneShot(this.audio_control.di, 1f);
@@ -78,6 +78,10 @@ public class GameManager : MonoBehaviour
             {
                     this.audio_control.other_source.PlayOneShot(this.audio_control.di, 1f);
             }
+        }
+        else if(count==331)//마지막에는 맵을 움직이기 시작한다
+        {
+            map.mapSpeed=200f;
         }
         #endregion
     }
