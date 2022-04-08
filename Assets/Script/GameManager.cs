@@ -22,14 +22,14 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Awake()//싱글톤 패턴으로 구현
     {
-        GameManager.energy=200f;
+        GameManager.energy=350f;
         count=0;
     }
     //游戏逻辑
     void Update()
     {
         #region Energy
-        EnergyBar.sizeDelta=new Vector2(energy,30);
+        EnergyBar.sizeDelta=new Vector2(energy,60);
         if (GameManager.energy <= 0)
         {
             if(player_control.stat!=Status.kneel)//패배상태가 아닐경우에 다른효과음 다 꺼주고 패배 효과음을 한번 켜준다

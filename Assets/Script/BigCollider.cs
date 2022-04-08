@@ -28,7 +28,7 @@ public class BigCollider : MonoBehaviour
             if(other.tag == "Obs")
             {
                 //에너지를 깍는다
-                GameManager.energy-=40f;
+                GameManager.energy-=70f;
                 if (GameManager.energy > 0)
                 {
                     this.animator.Play("stumble");

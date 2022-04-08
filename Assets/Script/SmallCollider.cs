@@ -27,7 +27,7 @@ public class SmallCollider : MonoBehaviour
             if (other.tag == "Obs")
             {
                 //에너지를 깍는다
-                GameManager.energy -= 40f;
+                GameManager.energy -= 70f;
 
                 //播被撞到的声音
                 this.audio_control.other_source.PlayOneShot(audio_control.hit, 3f);
