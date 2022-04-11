@@ -54,8 +54,8 @@ public class CameraChase : MonoBehaviour
         //游戏跑
         //if (Game_parameter.game_statu == Game_statu.gaming_run)
         {
-
-            targetPosition = player_transform.position + Vector3.up * run_distance_up + player_transform.forward * run_distance_away;
+            targetPosition = new Vector3(player_transform.position.x,0,0)+ Vector3.up * run_distance_up + player_transform.forward * run_distance_away;
+            //카메라의 y좌표와 z좌표는 고정,x좌표만 쫓아간다
 
             // targetPosition = new Vector3(targetPosition.x, 50, targetPosition.z);
 
