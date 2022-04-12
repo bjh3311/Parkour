@@ -18,7 +18,6 @@ public class Blink{
         if (is_dead == false) {
 
             this.frame_account++;
-
             if (this.frame_account/2 == this.textures.Length-1)
             {
                 this.frame_account = 0;

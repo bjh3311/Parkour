@@ -6,7 +6,12 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
-    public static float energy;                       //에너지
+
+    public static GameManager instance=null;
+
+
+
+    public float energy;                       //에너지
     public Audio_control audio_control;    //오디오 컨트롤
     public Player player_control;  //控制游戏主角的脚本对象
     public Animator animator;              //游戏主角的动画控制器
@@ -20,9 +25,12 @@ public class GameManager : MonoBehaviour
 
     public MapMove map;
     // Use this for initialization
+
+    public Texture2D[] blink_textures;
     void Awake()//싱글톤 패턴으로 구현
     {
-        GameManager.energy=350f;
+        instance=this;
+        this.energy=350f;
         count=0;
     }
     //游戏逻辑
@@ -30,7 +38,7 @@ public class GameManager : MonoBehaviour
     {
         #region Energy
         EnergyBar.sizeDelta=new Vector2(energy,60);
-        if (GameManager.energy <= 0)
+        if (this.energy <= 0)
         {
             if(player_control.stat!=Status.kneel)//패배상태가 아닐경우에 다른효과음 다 꺼주고 패배 효과음을 한번 켜준다
             {
@@ -84,5 +92,21 @@ public class GameManager : MonoBehaviour
             map.mapSpeed=200f;
         }
         #endregion
+    }
+    public void Blink()
+    {
+        try
+        {
+            for(int i=0;i<=18;i++)
+            {
+                GUI.DrawTexture(new Rect(0, 0, Camera.main.pixelWidth, Camera.main.pixelHeight),this.blink_textures[i]);
+            }
+        }
+        catch(Exception ex)
+        {
+            Debug.Log(ex);
+        }
+        
+       
     }
 }

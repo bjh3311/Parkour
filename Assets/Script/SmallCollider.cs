@@ -27,7 +27,7 @@ public class SmallCollider : MonoBehaviour
             if (other.tag == "Obs")
             {
                 //에너지를 깍는다
-                GameManager.energy -= 70f;
+                GameManager.instance.energy -= 70f;
 
                 //播被撞到的声音
                 this.audio_control.other_source.PlayOneShot(audio_control.hit, 3f);
@@ -57,66 +57,83 @@ public class SmallCollider : MonoBehaviour
                     Destroy(other.gameObject);
 
                 }
+            */
 
 
-                //如果撞到mei
                 else if (other.tag == "mei")
                 {
                     //0.生成碰撞后的飞舞动画,添加到游戏参数列表
-                    GUI_texture_move move = new GUI_texture_move(textures[0], other.transform.position);
-                    Game_parameter.GUI_texture_move_list.Add(move);
-
+                    if(GameManager.instance.energy<=280f)
+                    {   
+                        GameManager.instance.energy+=70f;//피 회복
+                    }
+                    else
+                    {
+                        GameManager.instance.energy=350f;
+                    }
+                    
                     //播被吃到能量物体的声音
                     this.audio_control.other_source.PlayOneShot(audio_control.gold, 3f);
 
                     //1. 移除当前能量物体 
-                    Destroy(other.gameObject);
+                    other.gameObject.SetActive(false);//오브젝트 풀링으로 구현하기 위해 SetActive(false)로 한다
                 }
 
                 //如果撞到lan
                 else if (other.tag == "lan")
-                {
-                    //0.生成碰撞后的飞舞动画,添加到游戏参数列表
-                    GUI_texture_move move = new GUI_texture_move(textures[1], other.transform.position);
-                    Game_parameter.GUI_texture_move_list.Add(move);
-
+                {   
+                    if(GameManager.instance.energy<=210f)
+                    {
+                        GameManager.instance.energy+=140f;//피 회복
+                    }
+                    else
+                    {
+                        GameManager.instance.energy=350f;
+                    }
                     //播被吃到能量物体的声音
                     this.audio_control.other_source.PlayOneShot(audio_control.gold, 3f);
 
                     //1. 移除当前能量物体 
-                    Destroy(other.gameObject);
+                    other.gameObject.SetActive(false);//오브젝트 풀링으로 구현하기 위해 SetActive(false)로 한다
                 }
 
                  //如果撞到zhu
                 else if (other.tag == "zhu")
                 {
                     //0.生成碰撞后的飞舞动画,添加到游戏参数列表
-                    GUI_texture_move move = new GUI_texture_move(textures[2], other.transform.position);
-                    Game_parameter.GUI_texture_move_list.Add(move);
-
+                    if(GameManager.instance.energy<=140f)
+                    {   
+                        GameManager.instance.energy+=210f;//피 회복
+                    }
+                    else
+                    {
+                        GameManager.instance.energy=350f;
+                    }
+                    GameManager.instance.energy+=210f;//피 회복
                     //播被吃到能量物体的声音
                     this.audio_control.other_source.PlayOneShot(audio_control.gold, 3f);
 
                     //1. 移除当前能量物体 
-                    Destroy(other.gameObject);
+                    other.gameObject.SetActive(false);//오브젝트 풀링으로 구현하기 위해 SetActive(false)로 한다
                 }
 
                  //如果撞到ju
                 else if (other.tag == "ju")
                 {
-                    //0.生成碰撞后的飞舞动画,添加到游戏参数列表
-                    GUI_texture_move move = new GUI_texture_move(textures[3], other.transform.position);
-                    Game_parameter.GUI_texture_move_list.Add(move);
-
+                    if(GameManager.instance.energy<=70f)
+                    {   
+                        GameManager.instance.energy+=280f;//피 회복
+                    }
+                    else
+                    {
+                        GameManager.instance.energy=350f;
+                    }
                     //播被吃到能量物体的声音
                     this.audio_control.other_source.PlayOneShot(audio_control.gold, 3f);
 
                     //1. 移除当前能量物体 
-                    Destroy(other.gameObject);
+                    other.gameObject.SetActive(false);//오브젝트 풀링으로 구현하기 위해 SetActive(false)로 한다
                 }
-                */
             }
-            
-        
     }
 }
