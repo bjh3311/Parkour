@@ -11,9 +11,7 @@ public class CameraChase : MonoBehaviour
 
 
     //奔跑的时摄像机 跟随的参数
-    public float run_distance_away;
-    public float run_distance_up;
-    public float run_speed;
+    public float run_speed;//카메라 쫓아가는 속도
 
     //무릎을 꿇을때 카메라 변수
     /*
@@ -54,15 +52,17 @@ public class CameraChase : MonoBehaviour
         //游戏跑
         //if (Game_parameter.game_statu == Game_statu.gaming_run)
         {
-            targetPosition = new Vector3(player_transform.position.x,0,0)+ Vector3.up * run_distance_up + player_transform.forward * run_distance_away;
+            targetPosition = new Vector3(player_transform.position.x,70,-20);
             //카메라의 y좌표와 z좌표는 고정,x좌표만 쫓아간다
 
             // targetPosition = new Vector3(targetPosition.x, 50, targetPosition.z);
 
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * run_speed*3f);
             //transform.rotation = Quaternion.LookRotation(new Vector3(player_transform.position.x, transform.position.y-20f, player_transform.position.z) - transform.position, Vector3.up);
+           /* 카메라 회전
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(player_transform.position.x, transform.position.y - 20f, player_transform.position.z)
                 - transform.position), 1 * Time.deltaTime);
+            */
            //transform.LookAt(player_transform);
             //transform.rotation = Quaternion.LookRotation(new Vector3(transform.rotation.x, player_transform.rotation.y, transform.rotation.z));
      

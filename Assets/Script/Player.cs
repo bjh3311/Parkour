@@ -137,11 +137,11 @@ public class Player : MonoBehaviour
             {
                 if ((jump_height - havejump_height) < 0.5f || this.transform.position.y > (this.jump_height + 0.5f))//고점에 다다르면
                 {
-                    this.transform.position = new Vector3(this.transform.position.x, this.jump_height, this.transform.position.z);
+                    this.transform.position = new Vector3(this.transform.position.x, this.jump_height, this.jump_height);
                     //this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + (jump_height - havejump_height), this.transform.position.z);  
                     isUp = false;
                     havejump_height = jump_height;//최대 높이에 도달하였다
-                    this.transform.position = new Vector3(transform.position.x, jump_height, transform.position.z);
+                    this.transform.position = new Vector3(transform.position.x, jump_height, jump_height);
                     //this.transform.position = new Vector3(this.transform.position.x, havejump_height, this.transform.position.z);
                     return;
                 }
@@ -151,7 +151,7 @@ public class Player : MonoBehaviour
             {
                 if (this.transform.position.y < -0.5f)
                 {
-                    this.transform.position = new Vector3(this.transform.position.x, 0, this.transform.position.z);
+                    this.transform.position = new Vector3(this.transform.position.x, 0, 0);
 
                     havejump_height = 0;//已经达到最小高度，将高度赋值
 
@@ -166,7 +166,7 @@ public class Player : MonoBehaviour
                 yMove=yMove+1.5f;
                 havejump_height -= yMove;
             }
-            this.transform.position = new Vector3(this.transform.position.x, havejump_height, this.transform.position.z);
+            this.transform.position = new Vector3(this.transform.position.x, havejump_height, havejump_height);
         }
         #endregion
 
