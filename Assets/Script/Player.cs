@@ -308,7 +308,8 @@ public class Player : MonoBehaviour
     public void move_up_animation()
     {
         //run상태일 때만 점프를 할 수 있다
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("run") && this.stat == Status.run_forward)
+        if ((this.animator.GetCurrentAnimatorStateInfo(0).IsName("run") && this.stat == Status.run_forward)||
+        this.animator.GetCurrentAnimatorStateInfo(0).IsName("stumble"))//피격중에도 점프를 할 수 있게한다
         {
             //점프 모션을 한번 취한다
             this.animator.Play("jump");

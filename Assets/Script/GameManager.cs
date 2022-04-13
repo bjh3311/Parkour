@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
 
     public Texture2D[] blink_textures;
+    public bool is_Blink=false;
+    private int frame_account=0;
     void Awake()//싱글톤 패턴으로 구현
     {
         instance=this;
@@ -94,21 +96,18 @@ public class GameManager : MonoBehaviour
             map.mapSpeed=200f;
         }
         #endregion
-    }
-    public void Blink()
-    {
-        try
+
+        #region 장애물에 걸렸을때 Blink효과
+        if(is_Blink)
         {
-            for(int i=0;i<=18;i++)
+            this.frame_account++;
+            if (this.frame_account/2 == this.blink_textures.Length-1)
             {
-                GUI.DrawTexture(new Rect(0, 0, Camera.main.pixelWidth, Camera.main.pixelHeight),this.blink_textures[i]);
+                this.frame_account = 0;
+                this.is_Blink = false;
             }
+            GUI.DrawTexture(new Rect(0, 0, Camera.main.pixelWidth, Camera.main.pixelHeight), this.blink_textures[frame_account/2]);
         }
-        catch(Exception ex)
-        {
-            Debug.Log(ex);
-        }
-        
-       
+        #endregion
     }
 }

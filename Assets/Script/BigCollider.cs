@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class BigCollider : MonoBehaviour
@@ -32,7 +32,7 @@ public class BigCollider : MonoBehaviour
                 }
                 //맞는 효과음 낸다
                 this.audio_control.player_source.PlayOneShot(audio_control.hit,3f);
-                GameManager.instance.Blink();//깜빡이는 효과
+                GameManager.instance.is_Blink=true;//깜빡이는 효과
             }
             /*
                 //碰到了诱惑性物体
@@ -132,7 +132,6 @@ public class BigCollider : MonoBehaviour
                     //1. 移除当前能量物体 
                     other.gameObject.SetActive(false);//오브젝트 풀링으로 구현하기 위해 SetActive(false)로 한다
                 }
-                
             }
         
     }
