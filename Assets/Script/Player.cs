@@ -220,7 +220,29 @@ public class Player : MonoBehaviour
         }
         #endregion
     }
-
+    public void Slide_down()//슬라이드 버튼 누르는동안
+    {
+        //run상태일 때만 slide를 할 수 있다.
+        if ((this.animator.GetCurrentAnimatorStateInfo(0).IsName("run")&& this.stat == Status.run_forward)||
+        this.animator.GetCurrentAnimatorStateInfo(0).IsName("stumble"))//피격 애니메이션 도중에도 Slide를 할 수 있어야 한다
+        {       
+            this.animator.Play("slide");
+            this.animator.SetBool("isSlide",true);
+            this.audio_control.player_source.clip=this.audio_control.slide;
+            this.audio_control.player_source.loop=true;//슬라이드 하는동안엔 계속 소리가 들려야한다
+            this.audio_control.player_source.Play();
+        }
+    }
+    public void Slide_Up()//슬라이드 버튼 떼면
+    {
+        //slide 상태일 때만 작동
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("slide")&& this.stat == Status.Down)
+        {
+            this.animator.SetBool("isSlide",false);
+            this.audio_control.player_source.clip=null;
+            this.audio_control.player_source.loop=false;//슬라이드가 끝나면 loop를 꺼준다
+        }
+    }
     public void move_left_animation()//왼쪽으로 가는 함수
     {
 

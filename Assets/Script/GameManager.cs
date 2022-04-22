@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public Texture2D[] blink_textures;
     public bool is_Blink=false;
     private int frame_account=0;
+    public GameObject Pasue_BG;//정지 배경화면
     void Awake()//싱글톤 패턴으로 구현
     {
         instance=this;
@@ -109,5 +110,15 @@ public class GameManager : MonoBehaviour
             GUI.DrawTexture(new Rect(0, 0, Camera.main.pixelWidth, Camera.main.pixelHeight), this.blink_textures[frame_account/2]);
         }
         #endregion
+    }
+    public void Pause()
+    {
+        Time.timeScale=0f;
+        Pasue_BG.SetActive(true);
+    }
+    public void Resume()
+    {
+        Time.timeScale=1f;
+        Pasue_BG.SetActive(false);
     }
 }

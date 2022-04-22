@@ -31,6 +31,7 @@ public class SmallCollider : MonoBehaviour
 
                 //播被撞到的声音
                 this.audio_control.other_source.PlayOneShot(audio_control.hit, 3f);
+                GameManager.instance.is_Blink=true;
                 //누워 있다가 갑자기 일어나서 아픈척하는게 좀 어색해서 걍 소리만 내는걸로
             }
             /*
