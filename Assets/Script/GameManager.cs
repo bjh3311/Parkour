@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour
     public Texture num_2;
     public Texture num_1;
 
-    public MapMove map;
+    public MapMove[] map;
+
     // Use this for initialization
 
     public Texture2D[] blink_textures;
@@ -55,7 +56,11 @@ public class GameManager : MonoBehaviour
             //패배 애니메이션
             this.animator.SetBool("isSlide", false);
             this.animator.SetBool("isFail", true);
-            map.mapSpeed=Mathf.Lerp(map.mapSpeed,0,0.04f);//천천히 맵을 정지시킨다
+            for(int i=0;i<4;i++)
+            {
+                map[i].mapSpeed=Mathf.Lerp(map[i].mapSpeed,0,0.04f);
+            }//천천히 모든 맵을 정지시킨다
+            
         }
         #endregion
     }
@@ -94,7 +99,10 @@ public class GameManager : MonoBehaviour
         }
         else if(count==331)//마지막에는 맵을 움직이기 시작한다
         {
-            map.mapSpeed=200f;
+            for(int i=0;i<4;i++)
+            {
+                map[i].mapSpeed=200f;
+            }
         }
         #endregion
 
