@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
         {
             for(int i=0;i<4;i++)
             {
-                map[i].mapSpeed=200f;
+                map[i].mapSpeed=300f;
             }
         }
         #endregion
