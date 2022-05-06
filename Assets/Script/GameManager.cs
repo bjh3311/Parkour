@@ -25,14 +25,14 @@ public class GameManager : MonoBehaviour
     public Texture num_2;
     public Texture num_1;
 
-    public MapMove[] map;
-
     // Use this for initialization
 
     public Texture2D[] blink_textures;
     public bool is_Blink=false;
     private int frame_account=0;
     public GameObject Pasue_BG;//정지 배경화면
+
+    public float mapSpeed=0f;
     void Awake()//싱글톤 패턴으로 구현
     {
         instance=this;
@@ -56,11 +56,7 @@ public class GameManager : MonoBehaviour
             //패배 애니메이션
             this.animator.SetBool("isSlide", false);
             this.animator.SetBool("isFail", true);
-            for(int i=0;i<4;i++)
-            {
-                map[i].mapSpeed=Mathf.Lerp(map[i].mapSpeed,0,0.04f);
-            }//천천히 모든 맵을 정지시킨다
-            
+            mapSpeed=Mathf.Lerp(mapSpeed,0,0.04f);//맵을 천천히 정지시킨다
         }
         #endregion
     }
@@ -101,7 +97,7 @@ public class GameManager : MonoBehaviour
         {
             for(int i=0;i<4;i++)
             {
-                map[i].mapSpeed=1500f;
+                mapSpeed=1500f;
             }
         }
         #endregion
