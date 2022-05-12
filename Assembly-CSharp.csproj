@@ -63,6 +63,7 @@
      <Compile Include="Assets\Script\SmallCollider.cs" />
      <None Include="Assets\Parkour\prefab\Materials\2-sided Alpha Cutout.shader" />
      <None Include="Assets\Parkour\config.xml" />
+     <None Include="Assets\Texture\NewUnlitShader.shader" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
