@@ -15,8 +15,6 @@ public class MainManager : MonoBehaviour
     private float threshold=1.01f;
     [SerializeField]
     private float dissolveTime;
-    public Text Loading;
-    // Start is called before the first frame update
     void Start()
     {
         Black.material.SetFloat("_Threshold",1.01f);
@@ -51,7 +49,6 @@ public class MainManager : MonoBehaviour
                 StartCoroutine("Mozaic");
                 break;
             }
-            
         }
     }
     IEnumerator Transparent()
@@ -82,26 +79,10 @@ public class MainManager : MonoBehaviour
             if(threshold<=0.0f)
             {
                 yield return new WaitForSeconds(0.5f);
-                Loading.gameObject.SetActive(true);
-                StartCoroutine("TypingEffect","......");
                 StartCoroutine("Load");
                 break;
             }
             
-        }
-    }
-    private IEnumerator TypingEffect(string dot)//Loading.... 에서 . 을 타이핑되는듯이 계속
-    {   
-        int i=0;
-        while(true)
-        {
-            for(i=0;i<dot.Length;i++)
-            {
-                Loading.text="Loading"+dot.Substring(0,i+1);
-                yield return new WaitForSeconds(0.5f);
-            }
-            Loading.text="Loading";
-            yield return new WaitForSeconds(0.5f);
         }
     }
     private IEnumerator Load()//씬 불러오기
@@ -117,7 +98,7 @@ public class MainManager : MonoBehaviour
             timer+=Time.unscaledDeltaTime;
             if(timer>=1.0f)//타이머가 지나면
             {
-                yield return new WaitForSeconds(3.5f);
+                yield return null;
                 op.allowSceneActivation=true;
                 break;
             }
