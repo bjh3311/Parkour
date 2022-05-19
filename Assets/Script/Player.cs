@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     private float havejump_height = 0;//이미 점프한 높이
     private bool isUp = true;
 
+
     //主角位移状态
     public Status stat;//현재 상태
 
@@ -105,7 +106,7 @@ public class Player : MonoBehaviour
         this.transform.LookAt(new Vector3(taget_point.x, this.transform.position.y, taget_point.z));
         #endregion
         */
-
+        this.transform.position=new Vector3(transform.position.x,transform.position.y,transform.position.z+GameManager.instance.mapSpeed*Time.deltaTime);
 
         #region 좌우로 움직임
         //방향 전환하는 구문 , 한번에 순간이동이 아닌 x_speed만큼 딱딱딱 이동하기 위한 구문이다 
@@ -137,11 +138,11 @@ public class Player : MonoBehaviour
             {
                 if ((jump_height - havejump_height) < 0.5f || this.transform.position.y > (this.jump_height + 0.5f))//고점에 다다르면
                 {
-                    this.transform.position = new Vector3(this.transform.position.x, this.jump_height, this.jump_height);
+                    this.transform.position = new Vector3(this.transform.position.x, this.jump_height, this.transform.position.z);
                     //this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + (jump_height - havejump_height), this.transform.position.z);  
                     isUp = false;
                     havejump_height = jump_height;//최대 높이에 도달하였다
-                    this.transform.position = new Vector3(transform.position.x, jump_height, jump_height);
+                    this.transform.position = new Vector3(transform.position.x, jump_height, this.transform.position.z);
                     //this.transform.position = new Vector3(this.transform.position.x, havejump_height, this.transform.position.z);
                     return;
                 }
@@ -151,7 +152,7 @@ public class Player : MonoBehaviour
             {
                 if (this.transform.position.y < -0.5f)
                 {
-                    this.transform.position = new Vector3(this.transform.position.x, 0, 0);
+                    this.transform.position = new Vector3(this.transform.position.x, 0, this.transform.position.z);
 
                     havejump_height = 0;//已经达到最小高度，将高度赋值
 
@@ -166,7 +167,7 @@ public class Player : MonoBehaviour
                 yMove=yMove+1.5f;
                 havejump_height -= yMove;
             }
-            this.transform.position = new Vector3(this.transform.position.x, havejump_height, havejump_height);
+            this.transform.position = new Vector3(this.transform.position.x, havejump_height, this.transform.position.z);
         }
         #endregion
 
