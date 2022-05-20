@@ -61,6 +61,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Time.timeScale==0)//정지하면 다 멈춘다
+        {
+            return;
+        }
         /*
         if (Game_parameter.game_statu != Game_statu.start_walk && Game_parameter.game_statu != Game_statu.gaming_run && Game_parameter.game_statu != Game_statu.success)
         {

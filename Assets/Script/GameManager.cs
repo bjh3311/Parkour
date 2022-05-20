@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
-
+using UnityEngine.SceneManagement;
 
 
 //定义一个游戏状态的枚举
@@ -32,12 +33,20 @@ public class GameManager : MonoBehaviour
     private int frame_account=0;
     public GameObject Pasue_BG;//정지 배경화면
 
+    public Image start_BG;//시작 모자이크 효과
+    private float threshold=0f;
+
     public float mapSpeed=0f;
+
+    private bool is_Start;//처음에 모자이크 효과가 끝난 후에 is_Start를 true로 바꿔준다
     void Awake()//싱글톤 패턴으로 구현
     {
         instance=this;
         this.energy=350f;
         count=0;
+        start_BG.material.SetFloat("_Threshold",0f);//처음엔 까맣게 시작
+        is_Start=false;
+        StartCoroutine("Mozaic");
     }
     //游戏逻辑
     void Update()
@@ -62,6 +71,10 @@ public class GameManager : MonoBehaviour
     }
     private void OnGUI() 
     {
+        if(!is_Start)//is_Start가 false이면 종료시킨다
+        {
+            return;
+        }
         //3,2,1 카운트 다운
         #region
         count++;
@@ -95,10 +108,8 @@ public class GameManager : MonoBehaviour
         }
         else if(count==331)//마지막에는 맵을 움직이기 시작한다
         {
-            for(int i=0;i<4;i++)
-            {
-                mapSpeed=200f;
-            }
+            start_BG.gameObject.SetActive(false);
+            mapSpeed=200f;
         }
         #endregion
 
@@ -124,5 +135,24 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale=1f;
         Pasue_BG.SetActive(false);
+    }
+    public void Quit()
+    {
+        SceneManager.LoadScene("Main");
+    }
+    IEnumerator Mozaic()
+    {
+        while(true)
+        {
+            start_BG.material.SetFloat("_Threshold", threshold);
+            threshold+=0.1f;
+            yield return new WaitForSeconds(0.05f);    
+            if(threshold>=1.01f)
+            {
+                yield return new WaitForSeconds(0.5f);
+                is_Start=true;
+                break;
+            }
+        }
     }
 }

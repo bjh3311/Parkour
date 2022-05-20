@@ -17,6 +17,7 @@ public class MainManager : MonoBehaviour
     private float dissolveTime;
     void Start()
     {
+        Time.timeScale=1f;
         Black.material.SetFloat("_Threshold",1.01f);
     }
     public void GameStart()
@@ -70,8 +71,7 @@ public class MainManager : MonoBehaviour
     }
     IEnumerator Mozaic()
     {
-        
-         while(true)
+        while(true)
         {
             Black.material.SetFloat("_Threshold", threshold);
             threshold-=0.1f;
@@ -82,7 +82,6 @@ public class MainManager : MonoBehaviour
                 StartCoroutine("Load");
                 break;
             }
-            
         }
     }
     private IEnumerator Load()//씬 불러오기
