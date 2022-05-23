@@ -60,6 +60,7 @@
      <Compile Include="Assets\Script\MainManager.cs" />
      <Compile Include="Assets\Script\MapManager.cs" />
      <Compile Include="Assets\Script\Player.cs" />
+     <Compile Include="Assets\Script\Score.cs" />
      <Compile Include="Assets\Script\SmallCollider.cs" />
      <None Include="Assets\Parkour\prefab\Materials\2-sided Alpha Cutout.shader" />
      <None Include="Assets\Parkour\config.xml" />

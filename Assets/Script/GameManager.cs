@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public Animator animator;              //游戏主角的动画控制器
     public RectTransform EnergyBar;//에너지 바 
 
-    private static int count;
+    public int count;
 
     public Texture num_3;
     public Texture num_2;
