@@ -15,6 +15,9 @@ public class MainManager : MonoBehaviour
     private float threshold=1.01f;
     [SerializeField]
     private float dissolveTime;
+    public Text Loading;
+    public Image Bar_BG;
+    public Image Bar;
     void Start()
     {
         Time.timeScale=1f;
@@ -79,9 +82,27 @@ public class MainManager : MonoBehaviour
             if(threshold<=0.0f)
             {
                 yield return new WaitForSeconds(0.5f);
+                Bar_BG.gameObject.SetActive(true);
+                Loading.gameObject.SetActive(true);
+                Bar.gameObject.SetActive(true);
+                StartCoroutine("TypingEffect","......");
                 StartCoroutine("Load");
                 break;
             }
+        }
+    }
+    private IEnumerator TypingEffect(string dot)//Loading.... 에서 . 을 타이핑되는듯이 계속
+    {   
+        int i=0;
+        while(true)
+        {
+            for(i=0;i<dot.Length;i++)
+            {
+                Loading.text="Loading"+dot.Substring(0,i+1);
+                yield return new WaitForSeconds(0.2f);
+            }
+            Loading.text="Loading";
+            yield return new WaitForSeconds(0.2f);
         }
     }
     private IEnumerator Load()//씬 불러오기
@@ -95,12 +116,24 @@ public class MainManager : MonoBehaviour
         {
             yield return null;
             timer+=Time.unscaledDeltaTime;
-            if(timer>=1.0f)//타이머가 지나면
+            if(op.progress<0.9f)
             {
-                yield return null;
-                op.allowSceneActivation=true;
-                break;
+                Bar.fillAmount=Mathf.Lerp(Bar.fillAmount,op.progress,timer);
+                if(Bar.fillAmount>=op.progress)
+                {
+                    timer=0f;
+                }
             }
+            else
+            {
+                Bar.fillAmount=Mathf.Lerp(Bar.fillAmount,1f,timer);
+                if(Bar.fillAmount==1.0f)//타이머가 지나면
+                {
+                    op.allowSceneActivation=true;
+                    yield break;
+                }
+            }
+           
         }    
     }
     
