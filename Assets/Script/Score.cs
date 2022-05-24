@@ -7,8 +7,8 @@ public class Score : MonoBehaviour
 {
     private float score = 0.0f;
     private int difficultyLevel=1;
-    private int maxDifficultyLevel=10;
-    private int scoreToNextLevel=10;
+    private int maxDifficultyLevel=6;
+    private int scoreToNextLevel=50;//50점 기준으로 속도가 빨라진다
 
     public Text scoreText;
     // Start is called before the first frame update
@@ -32,13 +32,12 @@ public class Score : MonoBehaviour
     }
     void LevelUp()
     {
-        if(difficultyLevel==maxDifficultyLevel)//최대 레벨은 20레벨
+        if(difficultyLevel==maxDifficultyLevel)//최대 레벨은 10레벨
         {
             return;
         }
-        scoreToNextLevel*=2;
+        scoreToNextLevel+=50;
         difficultyLevel++;
-        GameManager.instance.mapSpeed+=50;
-        GameManager.instance.ObsLength+=50f;
+        GameManager.instance.mapSpeed+=100;
     }
 }

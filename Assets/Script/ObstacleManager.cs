@@ -7,16 +7,17 @@ public class ObstacleManager : MonoBehaviour
     public GameObject[] ObsPrefabs;
     public Transform playerTransform;
     private float spawnZ=100f;
-    private int amountObsOnScreen=23;
+    private int amountObsOnScreen=21;
     public List<GameObject> activeObs;//화면에 나와있는 장애물들
     private List<GameObject> unactiveObs;
+    private float ObsLength=200f;
     // Start is called before the first frame update
     void Start()
     {
         activeObs=new List<GameObject>();
         unactiveObs=new List<GameObject>();
         GameObject temp;
-        for(int i=0;i<23;i++)//각 장애물이 3개씩 들어가있다
+        for(int i=0;i<21;i++)//각 장애물이 3개씩 들어가있다
         {
             for(int j=0;j<3;j++)
             {
@@ -25,7 +26,7 @@ public class ObstacleManager : MonoBehaviour
                unactiveObs.Add(temp);
             }
         }
-        for(int i=0;i<23;i++)
+        for(int i=0;i<21;i++)
         {
             SpawnObs();
         }
@@ -34,7 +35,7 @@ public class ObstacleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerTransform.position.z-300f>spawnZ-(amountObsOnScreen*GameManager.instance.ObsLength))//위치를 계속 확인하며 spawn과 delete를 계속한다
+        if(playerTransform.position.z-300f>spawnZ-(amountObsOnScreen*ObsLength))//위치를 계속 확인하며 spawn과 delete를 계속한다
         {
             SpawnObs();
             DeleteObs();
@@ -48,7 +49,7 @@ public class ObstacleManager : MonoBehaviour
         unactiveObs[randomIndex].transform.position.y,spawnZ);
         activeObs.Add(unactiveObs[randomIndex]);
         unactiveObs.RemoveAt(randomIndex);
-        spawnZ=spawnZ+GameManager.instance.ObsLength;
+        spawnZ=spawnZ+ObsLength;
     }
     private void DeleteObs()
     {

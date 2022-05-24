@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
     private float threshold=0f;
 
     public float mapSpeed=0f;
-    public float ObsLength;
 
     private bool is_Start;//처음에 모자이크 효과가 끝난 후에 is_Start를 true로 바꿔준다
     void Awake()//싱글톤 패턴으로 구현
@@ -47,7 +46,6 @@ public class GameManager : MonoBehaviour
         count=0;
         start_BG.material.SetFloat("_Threshold",0f);//처음엔 까맣게 시작
         is_Start=false;
-        ObsLength=200f;//장애물간 간격, 레벨업 해서 속도가 빨라질수록 거리를 벌릴 예정
         StartCoroutine("Mozaic");
     }
     //游戏逻辑
@@ -105,7 +103,7 @@ public class GameManager : MonoBehaviour
             Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2), num_1);
             if (count == 231)
             {
-                    this.audio_control.other_source.PlayOneShot(this.audio_control.di, 1f);
+                this.audio_control.other_source.PlayOneShot(this.audio_control.di, 1f);
             }
         }
         else if(count==331)//마지막에는 맵을 움직이기 시작한다
