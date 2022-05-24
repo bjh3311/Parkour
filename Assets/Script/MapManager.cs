@@ -40,7 +40,7 @@ public class MapManager : MonoBehaviour
             DeleteMap();
         }
     }
-    private void SpawnMap(int prefabIndex = -1)//함수 사용시 파라미터에 아무것도 안넣으면 -1이 들어감
+    private void SpawnMap()//함수 사용시 파라미터에 아무것도 안넣으면 -1이 들어감
     {
         int randomIndex=Random.Range(0,unactiveMap.Count);
         unactiveMap[randomIndex].SetActive(true);
