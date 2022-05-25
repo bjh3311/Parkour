@@ -21,26 +21,5 @@ public class Audio_control : MonoBehaviour {
     public AudioClip left_right;
     public AudioClip jump;
     public AudioClip tempt_collision;
-
-
-    // Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //source.PlayOneShot(audios[0], 1f);
-          
-            //source.Play(audios[0].);
-            //source[0].pl
-            //source[0].clip
-
-            //source.clip = audios[2];
-            //source.Play();
-        }
-	}
+    public AudioClip SpeedUp;
 }

@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     public bool is_Blink=false;
     private int frame_account=0;
     public GameObject Pasue_BG;//정지 배경화면
+    public GameObject Over_BG;
 
     public Image start_BG;//시작 모자이크 효과
     private float threshold=0f;
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
                 this.audio_control.other_source.PlayOneShot(audio_control.lose, 0.5f);//패배 효과음을 킨다
                 this.audio_control.bg_source.Stop();//배경음악은 끈다
                 this.audio_control.player_source.Stop();//플레이어 효과음도 끈다
+                StartCoroutine("GameOver");
             }
             player_control.stat=Status.kneel;//패배상태로 만들어준다
             //패배 애니메이션
@@ -128,6 +130,10 @@ public class GameManager : MonoBehaviour
     }
     public void Pause()
     {
+        if(player_control.stat==Status.kneel)//만약 에너지가 다달아서 죽은 상태면 Pause가 작동안되게 한다
+        {
+            return;
+        }
         Time.timeScale=0f;
         Pasue_BG.SetActive(true);
     }
@@ -135,6 +141,10 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale=1f;
         Pasue_BG.SetActive(false);
+    }
+    public void Restart()
+    {
+        SceneManager.LoadScene("Stage");
     }
     public void Quit()
     {
@@ -154,5 +164,10 @@ public class GameManager : MonoBehaviour
                 break;
             }
         }
+    }
+    IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(3.5f);
+        Over_BG.gameObject.SetActive(true);
     }
 }

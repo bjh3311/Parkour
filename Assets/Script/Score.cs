@@ -32,6 +32,7 @@ public class Score : MonoBehaviour
     }
     void LevelUp()
     {
+        GameManager.instance.audio_control.other_source.PlayOneShot(GameManager.instance.audio_control.SpeedUp,1f);
         if(difficultyLevel==maxDifficultyLevel)//최대 레벨은 10레벨
         {
             return;

@@ -12,8 +12,7 @@ public class ItemManager : MonoBehaviour
     private List<GameObject> unactiveItem;
     private float ItemLength=600f;
 
-    private int[] dx=new int[]{0,0,50,50,-50,-50};
-    private int[] dy=new int[]{-10,30,-10,30,-10,30};//총 6쌍의 위치변수
+    private int[] dx=new int[]{0,50,-50};
     void Start()
     {
         activeItem=new List<GameObject>();
@@ -43,10 +42,10 @@ public class ItemManager : MonoBehaviour
     }
     private void SpawnObs()
     {
-        int pos=Random.Range(0,6);
+        int pos=Random.Range(0,3);
         int randomIndex=Random.Range(0,unactiveItem.Count);
         unactiveItem[randomIndex].SetActive(true);
-        unactiveItem[randomIndex].transform.position=new Vector3(dx[pos],dy[pos],spawnZ);
+        unactiveItem[randomIndex].transform.position=new Vector3(dx[pos],30,spawnZ);
         activeItem.Add(unactiveItem[randomIndex]);
         unactiveItem.RemoveAt(randomIndex);
         spawnZ=spawnZ+ItemLength;
