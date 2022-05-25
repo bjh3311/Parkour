@@ -47,6 +47,7 @@ public class SmallCollider : MonoBehaviour
                 }   
                 //播被吃到能量物体的声音
                 this.audio_control.other_source.PlayOneShot(audio_control.gold, 3f);
+                other.gameObject.SetActive(false);//오브젝트 풀링으로 구현하기 위해 SetActive(false)로 한다
             }
             //如果撞到lan
             else if (other.tag == "lan")
@@ -61,11 +62,11 @@ public class SmallCollider : MonoBehaviour
                 }
                 //播被吃到能量物体的声音
                 this.audio_control.other_source.PlayOneShot(audio_control.gold, 3f);
+                other.gameObject.SetActive(false);//오브젝트 풀링으로 구현하기 위해 SetActive(false)로 한다
             }
             //如果撞到zhu
-            else if (other.tag == "zhu")
+            else if (other.tag == "ju")
             {
-                Debug.Log("우왕");
                 if(GameManager.instance.energy<=140f)
                 {   
                     GameManager.instance.energy+=210f;//피 회복
@@ -76,6 +77,7 @@ public class SmallCollider : MonoBehaviour
                 }
                 //播被吃到能量物体的声音
                 this.audio_control.other_source.PlayOneShot(audio_control.gold, 3f);
+                other.gameObject.SetActive(false);//오브젝트 풀링으로 구현하기 위해 SetActive(false)로 한다
             }
         }
     }
