@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.CollabProxy.Editor", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.VSCode.Editor", "Unity.VSCode.Editor.csproj", "{67d3804e-7dd9-d93a-3f8a-150f0615fe3f}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Mobile.AndroidLogcat.Editor", "Unity.Mobile.AndroidLogcat.Editor.csproj", "{e3877d41-793a-23c7-af55-d4bdae3b3e89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,8 @@ Global
 		{d863c66b-efba-7024-787e-863fcd8cc69b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67d3804e-7dd9-d93a-3f8a-150f0615fe3f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{67d3804e-7dd9-d93a-3f8a-150f0615fe3f}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{e3877d41-793a-23c7-af55-d4bdae3b3e89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{e3877d41-793a-23c7-af55-d4bdae3b3e89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
