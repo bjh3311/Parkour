@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - Audio_control
     - BigCollider
     - CameraChase
+    - FrameCheck
     - GameManager
     - ItemManager
     - MainManager
@@ -92,7 +93,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12822}
     - Class: 114
-      Script: {instanceID: 13214}
+      Script: {instanceID: 13216}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -191,11 +192,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12822}
     - Class: 114
-      Script: {instanceID: 12954}
+      Script: {instanceID: 12844}
     - Class: 114
-      Script: {instanceID: 13170}
+      Script: {instanceID: 12956}
     - Class: 114
-      Script: {instanceID: 13214}
+      Script: {instanceID: 13172}
+    - Class: 114
+      Script: {instanceID: 13216}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -647,6 +650,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
+  - hash:
+      serializedVersion: 2
+      Hash: 96a16edb101dae84c25b8354d6d72211
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FrameCheck
   - hash:
       serializedVersion: 2
       Hash: 6461856db758408e3b85f604ac9a7fc3

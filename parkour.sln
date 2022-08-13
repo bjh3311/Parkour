@@ -19,13 +19,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Timeline.Editor", "Un
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityEditor.UI", "UnityEditor.UI.csproj", "{8a099af5-cbe3-b513-098f-19e6d92031b7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Mobile.AndroidLogcat.Editor", "Unity.Mobile.AndroidLogcat.Editor.csproj", "{e3877d41-793a-23c7-af55-d4bdae3b3e89}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Rider.Editor", "Unity.Rider.Editor.csproj", "{0ec3ed8d-9004-5c0b-0c32-41127d227a66}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.CollabProxy.Editor", "Unity.CollabProxy.Editor.csproj", "{d863c66b-efba-7024-787e-863fcd8cc69b}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.VSCode.Editor", "Unity.VSCode.Editor.csproj", "{67d3804e-7dd9-d93a-3f8a-150f0615fe3f}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Mobile.AndroidLogcat.Editor", "Unity.Mobile.AndroidLogcat.Editor.csproj", "{e3877d41-793a-23c7-af55-d4bdae3b3e89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,14 +50,14 @@ Global
 		{3289c90e-3fc2-a845-2e74-0965f8b189ae}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8a099af5-cbe3-b513-098f-19e6d92031b7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8a099af5-cbe3-b513-098f-19e6d92031b7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{e3877d41-793a-23c7-af55-d4bdae3b3e89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{e3877d41-793a-23c7-af55-d4bdae3b3e89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ec3ed8d-9004-5c0b-0c32-41127d227a66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0ec3ed8d-9004-5c0b-0c32-41127d227a66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{d863c66b-efba-7024-787e-863fcd8cc69b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{d863c66b-efba-7024-787e-863fcd8cc69b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67d3804e-7dd9-d93a-3f8a-150f0615fe3f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{67d3804e-7dd9-d93a-3f8a-150f0615fe3f}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{e3877d41-793a-23c7-af55-d4bdae3b3e89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{e3877d41-793a-23c7-af55-d4bdae3b3e89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
