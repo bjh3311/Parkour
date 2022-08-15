@@ -6,7 +6,7 @@ public class MapManager : MonoBehaviour
 {
     public GameObject[] MapPrefabs;
     public Transform playerTransform;
-    private float spawnZ=700f;
+    private float spawnZ=12700f;
     private float MapLength=3000f;
     private int amountMapOnScreen=4;
 
@@ -26,10 +26,10 @@ public class MapManager : MonoBehaviour
                 unactiveMap.Add(temp);
             }
         }
-        SpawnMap();
-        SpawnMap();
-        SpawnMap();
-        SpawnMap();
+        activeMap.Add(MapPrefabs[0]);
+        activeMap.Add(MapPrefabs[1]);
+        activeMap.Add(MapPrefabs[2]);
+        activeMap.Add(MapPrefabs[3]);
     }
     // Update is called once per frame
     void Update()
