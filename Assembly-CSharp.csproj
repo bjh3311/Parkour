@@ -56,7 +56,6 @@
      <Compile Include="Assets\Script\Audio_control.cs" />
      <Compile Include="Assets\Script\BigCollider.cs" />
      <Compile Include="Assets\Script\CameraChase.cs" />
-     <Compile Include="Assets\Script\FrameCheck.cs" />
      <Compile Include="Assets\Script\GameManager.cs" />
      <Compile Include="Assets\Script\ItemManager.cs" />
      <Compile Include="Assets\Script\MainManager.cs" />
@@ -601,6 +600,18 @@
       <Project>{67d3804e-7dd9-d93a-3f8a-150f0615fe3f}</Project>
       <Name>Unity.VSCode.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.ProBuilder.csproj">
+      <Project>{f7169016-f33b-eea8-c965-8e33ae80b0cf}</Project>
+      <Name>Unity.ProBuilder</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ProBuilder.Editor.csproj">
+      <Project>{2eddb8ef-1595-3a70-e5ed-da1c42fa92c5}</Project>
+      <Name>Unity.ProBuilder.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ProBuilder.AssetIdRemapUtility.csproj">
+      <Project>{cc8b1e00-ea7b-e85a-bb81-8f5e65462cc1}</Project>
+      <Name>Unity.ProBuilder.AssetIdRemapUtility</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
       <Project>{51ab81b4-de47-a797-8b20-1dd8a14584fe}</Project>
       <Name>Unity.TextMeshPro.Editor</Name>
@@ -624,6 +635,10 @@
     <ProjectReference Include="Unity.Mobile.AndroidLogcat.Editor.csproj">
       <Project>{e3877d41-793a-23c7-af55-d4bdae3b3e89}</Project>
       <Name>Unity.Mobile.AndroidLogcat.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.ProBuilder.AddOns.Editor.csproj">
+      <Project>{329617ef-c712-6ccb-1de0-47069c097ff0}</Project>
+      <Name>Unity.ProBuilder.AddOns.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.csproj">
       <Project>{30dfaeaf-5f94-1018-944d-66d9e779c22c}</Project>
