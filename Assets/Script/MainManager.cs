@@ -22,6 +22,7 @@ public class MainManager : MonoBehaviour
     {
         Time.timeScale=1f;
         Black.material.SetFloat("_Threshold",1.01f);
+         Application.targetFrameRate=60;
     }
     public void GameStart()
     {

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
@@ -11,9 +11,6 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance=null;
-
-
-
     public float energy;                       //에너지
     public Audio_control audio_control;    //오디오 컨트롤
     public Player player_control;  //控制游戏主角的脚本对象
@@ -48,6 +45,7 @@ public class GameManager : MonoBehaviour
         start_BG.material.SetFloat("_Threshold",0f);//처음엔 까맣게 시작
         is_Start=false;
         StartCoroutine("Mozaic");
+        Application.targetFrameRate=60;
     }
     //游戏逻辑
     void Update()
