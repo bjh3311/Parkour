@@ -58,7 +58,6 @@
      <Compile Include="Assets\Script\CameraChase.cs" />
      <Compile Include="Assets\Script\GameManager.cs" />
      <Compile Include="Assets\Script\ItemManager.cs" />
-     <Compile Include="Assets\Script\Login\KakaoLogin.cs" />
      <Compile Include="Assets\Script\MainManager.cs" />
      <Compile Include="Assets\Script\MapManager.cs" />
      <Compile Include="Assets\Script\ObstacleManager.cs" />
