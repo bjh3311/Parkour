@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
-
 public class CameraChase : MonoBehaviour
 {
 
     //public Animator animator;
 
     public Transform player_transform;
-
 
 
     //奔跑的时摄像机 跟随的参数

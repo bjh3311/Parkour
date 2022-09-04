@@ -57,6 +57,7 @@
      <Compile Include="Assets\Script\BigCollider.cs" />
      <Compile Include="Assets\Script\CameraChase.cs" />
      <Compile Include="Assets\Script\GameManager.cs" />
+     <Compile Include="Assets\Script\GoogleLogin.cs" />
      <Compile Include="Assets\Script\ItemManager.cs" />
      <Compile Include="Assets\Script\MainManager.cs" />
      <Compile Include="Assets\Script\MapManager.cs" />
@@ -64,6 +65,7 @@
      <Compile Include="Assets\Script\Player.cs" />
      <Compile Include="Assets\Script\Score.cs" />
      <Compile Include="Assets\Script\SmallCollider.cs" />
+     <None Include="Assets\GooglePlayGames\com.google.play.games\Proguard\games.txt" />
      <None Include="Assets\Parkour\prefab\Materials\2-sided Alpha Cutout.shader" />
      <None Include="Assets\SimplestMeshBaker\Readme.txt" />
      <None Include="Assets\Parkour\config.xml" />
@@ -628,9 +630,17 @@
       <Project>{d863c66b-efba-7024-787e-863fcd8cc69b}</Project>
       <Name>Unity.CollabProxy.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Google.Play.Games.csproj">
+      <Project>{68f32fd5-fca0-627f-3562-9e7d14373ace}</Project>
+      <Name>Google.Play.Games</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Rider.Editor.csproj">
       <Project>{0ec3ed8d-9004-5c0b-0c32-41127d227a66}</Project>
       <Name>Unity.Rider.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Google.Play.Games.Editor.csproj">
+      <Project>{fb82522b-5876-3777-5113-3c610c0ebea1}</Project>
+      <Name>Google.Play.Games.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Mobile.AndroidLogcat.Editor.csproj">
       <Project>{e3877d41-793a-23c7-af55-d4bdae3b3e89}</Project>
