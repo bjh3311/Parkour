@@ -269,6 +269,21 @@
     <Reference Include="UnityEditor.Android.Extensions">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.21f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Google.VersionHandler">
+        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/Google.VersionHandler.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.IOSResolver">
+        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/1.2.169/Google.IOSResolver.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.JarResolver">
+        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/1.2.169/Google.JarResolver.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.PackageManagerResolver">
+        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/1.2.169/Google.PackageManagerResolver.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.VersionHandlerImpl">
+        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/1.2.169/Google.VersionHandlerImpl.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
         <HintPath>C:/Users/ross2/Desktop/parkour/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>

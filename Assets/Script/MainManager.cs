@@ -1,8 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms;
+
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
 
 public class MainManager : MonoBehaviour
 {
@@ -22,7 +27,9 @@ public class MainManager : MonoBehaviour
     {
         Time.timeScale=1f;
         Black.material.SetFloat("_Threshold",1.01f);
-         Application.targetFrameRate=60;
+        Application.targetFrameRate=60;
+        PlayGamesPlatform.DebugLogEnabled=true;   
+        PlayGamesPlatform.Activate();//구글플레이 플랫폼 활성화
     }
     public void GameStart()
     {

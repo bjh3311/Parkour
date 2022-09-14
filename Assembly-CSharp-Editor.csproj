@@ -234,20 +234,20 @@
     <Reference Include="UnityEditor.Android.Extensions">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.21f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Google.VersionHandler">
+        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/Google.VersionHandler.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.IOSResolver">
+        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/1.2.169/Google.IOSResolver.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.JarResolver">
+        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/1.2.169/Google.JarResolver.dll</HintPath>
+    </Reference>
     <Reference Include="Google.PackageManagerResolver">
         <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/1.2.169/Google.PackageManagerResolver.dll</HintPath>
     </Reference>
     <Reference Include="Google.VersionHandlerImpl">
         <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/1.2.169/Google.VersionHandlerImpl.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.VersionHandler">
-        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/Google.VersionHandler.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.JarResolver">
-        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/1.2.169/Google.JarResolver.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.IOSResolver">
-        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/1.2.169/Google.IOSResolver.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
         <HintPath>C:/Users/ross2/Desktop/parkour/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
@@ -656,9 +656,17 @@
       <Project>{d863c66b-efba-7024-787e-863fcd8cc69b}</Project>
       <Name>Unity.CollabProxy.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Google.Play.Games.csproj">
+      <Project>{68f32fd5-fca0-627f-3562-9e7d14373ace}</Project>
+      <Name>Google.Play.Games</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Rider.Editor.csproj">
       <Project>{0ec3ed8d-9004-5c0b-0c32-41127d227a66}</Project>
       <Name>Unity.Rider.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Google.Play.Games.Editor.csproj">
+      <Project>{fb82522b-5876-3777-5113-3c610c0ebea1}</Project>
+      <Name>Google.Play.Games.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Mobile.AndroidLogcat.Editor.csproj">
       <Project>{e3877d41-793a-23c7-af55-d4bdae3b3e89}</Project>
@@ -675,14 +683,6 @@
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{8a099af5-cbe3-b513-098f-19e6d92031b7}</Project>
       <Name>UnityEditor.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="Google.Play.Games.csproj">
-      <Project>{68f32fd5-fca0-627f-3562-9e7d14373ace}</Project>
-      <Name>Google.Play.Games</Name>
-    </ProjectReference>
-    <ProjectReference Include="Google.Play.Games.Editor.csproj">
-      <Project>{fb82522b-5876-3777-5113-3c610c0ebea1}</Project>
-      <Name>Google.Play.Games.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
