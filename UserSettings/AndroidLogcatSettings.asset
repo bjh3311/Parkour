@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "LMG900N6e5d62e2",
         "name": "com.Redtiger.Parkour3D",
-        "processId": 25668,
+        "processId": 4383,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,79 +11,43 @@
         {
             "deviceId": "LMG900N6e5d62e2",
             "name": "com.Redtiger.Parkour3D",
-            "processId": 27243,
-            "exited": true
-        },
-        {
-            "deviceId": "LMG900N6e5d62e2",
-            "name": "com.Redtiger.Parkour3D",
-            "processId": 29930,
-            "exited": true
-        },
-        {
-            "deviceId": "LMG900N6e5d62e2",
-            "name": "com.Redtiger.Parkour3D",
-            "processId": 30829,
-            "exited": true
-        },
-        {
-            "deviceId": "LMG900N6e5d62e2",
-            "name": "com.Redtiger.Parkour3D",
-            "processId": 31809,
-            "exited": true
-        },
-        {
-            "deviceId": "LMG900N6e5d62e2",
-            "name": "com.Redtiger.Parkour3D",
-            "processId": 12320,
-            "exited": true
-        },
-        {
-            "deviceId": "LMG900N6e5d62e2",
-            "name": "com.lge.launcher3",
-            "processId": 3218,
-            "exited": false
-        },
-        {
-            "deviceId": "LMG900N6e5d62e2",
-            "name": "com.Redtiger.Parkour3D",
-            "processId": 29342,
-            "exited": false
-        },
-        {
-            "deviceId": "LMG900N6e5d62e2",
-            "name": "com.Redtiger.Parkour3D",
-            "processId": 13792,
-            "exited": false
-        },
-        {
-            "deviceId": "LMG900N6e5d62e2",
-            "name": "com.Redtiger.Parkour3D",
             "processId": 15008,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "LMG900N6e5d62e2",
             "name": "com.Redtiger.Parkour3D",
             "processId": 16299,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "LMG900N6e5d62e2",
             "name": "com.Redtiger.Parkour3D",
             "processId": 17739,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "LMG900N6e5d62e2",
             "name": "com.Redtiger.Parkour3D",
             "processId": 19396,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "LMG900N6e5d62e2",
             "name": "com.Redtiger.Parkour3D",
             "processId": 25668,
+            "exited": true
+        },
+        {
+            "deviceId": "LMG900N6e5d62e2",
+            "name": "com.Redtiger.Parkour3D",
+            "processId": 29553,
+            "exited": false
+        },
+        {
+            "deviceId": "LMG900N6e5d62e2",
+            "name": "com.Redtiger.Parkour3D",
+            "processId": 4383,
             "exited": false
         }
     ],
