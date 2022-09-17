@@ -36,6 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\GPGSIds.cs" />
      <Compile Include="Assets\Parkour\script\Basic_setting.cs" />
      <Compile Include="Assets\Parkour\script\XML.cs" />
      <Compile Include="Assets\Parkour\script\gaming\Big_collider.cs" />
