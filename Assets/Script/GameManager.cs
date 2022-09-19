@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
 
     public float mapSpeed=0f;
 
+    private LeaderBoard LeaderBoard;
+
     private bool is_Start;//처음에 모자이크 효과가 끝난 후에 is_Start를 true로 바꿔준다
     void Awake()//싱글톤 패턴으로 구현
     {
@@ -46,6 +48,8 @@ public class GameManager : MonoBehaviour
         is_Start=false;
         StartCoroutine("Mozaic");
         Application.targetFrameRate=60;
+        LeaderBoard=this.gameObject.GetComponent<LeaderBoard>();
+        //게임매니저에 붙어있는 LeaderBoard 스크립트를 참조한다.
     }
     //游戏逻辑
     void Update()
@@ -60,12 +64,13 @@ public class GameManager : MonoBehaviour
                 this.audio_control.bg_source.Stop();//배경음악은 끈다
                 this.audio_control.player_source.Stop();//플레이어 효과음도 끈다
                 StartCoroutine("GameOver");
+                LeaderBoard.AddLeaderboard();//리더보드에 점수를 기록시킨다.
             }
             player_control.stat=Status.kneel;//패배상태로 만들어준다
             //패배 애니메이션
             this.animator.SetBool("isSlide", false);
             this.animator.SetBool("isFail", true);
-            mapSpeed=Mathf.Lerp(mapSpeed,0,0.04f);//맵을 천천히 정지시킨다
+            mapSpeed=Mathf.Lerp(mapSpeed,0,0.04f);//맵을 천천히 정지시킨다 
         }
         #endregion
     }

@@ -30,6 +30,14 @@ public class MainManager : MonoBehaviour
         Application.targetFrameRate=60;
         PlayGamesPlatform.DebugLogEnabled=true;   
         PlayGamesPlatform.Activate();//구글플레이 플랫폼 활성화
+        Social.localUser.Authenticate((bool success) => 
+        {
+            if(success)
+            {
+                Debug.Log(Social.localUser.id);
+            }
+        });//시작할때 Authenticate를 해줘야 리더보드에 접근 할 수 있다.
+        
     }
     public void GameStart()
     {

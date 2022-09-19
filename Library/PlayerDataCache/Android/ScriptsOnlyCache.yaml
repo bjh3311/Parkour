@@ -7,6 +7,7 @@ ScriptsOnlyBuild:
     - CameraChase
     - GameManager
     - ItemManager
+    - LeaderBoard
     - MainManager
     - MapManager
     - ObstacleManager
@@ -90,11 +91,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12346}
     - Class: 114
-      Script: {instanceID: 12880}
+      Script: {instanceID: 12882}
     - Class: 114
-      Script: {instanceID: 13608}
+      Script: {instanceID: 13610}
     - Class: 114
-      Script: {instanceID: 14192}
+      Script: {instanceID: 14194}
+    - Class: 114
+      Script: {instanceID: 30842}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -181,25 +184,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12328}
     - Class: 114
-      Script: {instanceID: 12700}
+      Script: {instanceID: 12702}
     - Class: 114
-      Script: {instanceID: 12880}
+      Script: {instanceID: 12882}
     - Class: 114
-      Script: {instanceID: 12914}
+      Script: {instanceID: 12916}
     - Class: 114
-      Script: {instanceID: 13194}
+      Script: {instanceID: 13196}
     - Class: 114
-      Script: {instanceID: 13212}
+      Script: {instanceID: 13214}
     - Class: 114
-      Script: {instanceID: 13502}
+      Script: {instanceID: 13504}
     - Class: 114
-      Script: {instanceID: 13608}
+      Script: {instanceID: 13610}
     - Class: 114
-      Script: {instanceID: 13820}
+      Script: {instanceID: 13822}
     - Class: 114
-      Script: {instanceID: 14132}
+      Script: {instanceID: 14134}
     - Class: 114
-      Script: {instanceID: 14192}
+      Script: {instanceID: 14194}
+    - Class: 114
+      Script: {instanceID: 30842}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -867,6 +872,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 0fb2b962a48d2f6039fa9915b7639cc3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LeaderBoard
   platform: 13
   scenePathNames:
   - Assets/Scenes/Main.unity
