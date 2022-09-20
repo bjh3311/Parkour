@@ -38,6 +38,10 @@ public class GameManager : MonoBehaviour
 
     private LeaderBoard LeaderBoard;
 
+    public GameObject[] UI;
+
+    public CameraChase CameraScript;
+
     private bool is_Start;//처음에 모자이크 효과가 끝난 후에 is_Start를 true로 바꿔준다
     void Awake()//싱글톤 패턴으로 구현
     {
@@ -83,35 +87,40 @@ public class GameManager : MonoBehaviour
         //3,2,1 카운트 다운
         #region
         count++;
-        if (count < 130 && count > 30)
+        if (count < 280 && count > 180)
         {
             GUI.DrawTexture(new Rect(Camera.main.pixelWidth / 4, Camera.main.pixelHeight / 5,
             Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2), num_3);
-            if (count == 31)
+            if (count == 181)
             {
+                foreach(GameObject temp in UI)
+                {
+                    temp.gameObject.SetActive(true);
+                }
+                CameraScript.enabled=true;
                 this.audio_control.other_source.PlayOneShot(this.audio_control.di, 1f);
             }
         }
-        else if (count > 130 && count < 230)
+        else if (count > 280 && count < 380)
         {
             GUI.DrawTexture(new Rect(Camera.main.pixelWidth / 4, Camera.main.pixelHeight / 5,
             Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2), num_2);
 
-            if (count == 131)
+            if (count == 281)
             {
                 this.audio_control.other_source.PlayOneShot(this.audio_control.di, 1f);
             }
         }
-        else if (count > 230 && count < 330)
+        else if (count > 380 && count < 480)
         {
             GUI.DrawTexture(new Rect(Camera.main.pixelWidth / 4, Camera.main.pixelHeight / 5,
             Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2), num_1);
-            if (count == 231)
+            if (count == 381)
             {
                 this.audio_control.other_source.PlayOneShot(this.audio_control.di, 1f);
             }
         }
-        else if(count==331)//마지막에는 맵을 움직이기 시작한다
+        else if(count==481)//마지막에는 맵을 움직이기 시작한다
         {
             start_BG.gameObject.SetActive(false);
             mapSpeed=200f;

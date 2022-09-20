@@ -23,6 +23,7 @@ public class MainManager : MonoBehaviour
     public Text Loading;
     public Image Bar_BG;
     public Image Bar;
+    public Text Ranking;
     void Start()
     {
         Time.timeScale=1f;
@@ -82,6 +83,7 @@ public class MainManager : MonoBehaviour
             {
                 temp.color=new Color32(255,255,255,maxTrans);
             }
+            Ranking.color=new Color32(255,255,255,maxTrans);
             if(maxTrans<=0)
             {
                 break;
