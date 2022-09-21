@@ -59,6 +59,7 @@
      <Compile Include="Assets\Script\BigCollider.cs" />
      <Compile Include="Assets\Script\CameraChase.cs" />
      <Compile Include="Assets\Script\GameManager.cs" />
+     <Compile Include="Assets\Script\GoogleAD.cs" />
      <Compile Include="Assets\Script\ItemManager.cs" />
      <Compile Include="Assets\Script\LeaderBoard.cs" />
      <Compile Include="Assets\Script\MainManager.cs" />
@@ -68,7 +69,9 @@
      <Compile Include="Assets\Script\Score.cs" />
      <Compile Include="Assets\Script\SmallCollider.cs" />
      <None Include="Assets\GooglePlayGames\com.google.play.games\Proguard\games.txt" />
+     <None Include="Assets\GoogleMobileAds\GoogleMobileAds_version-7.2.0_manifest.txt" />
      <None Include="Assets\Parkour\prefab\Materials\2-sided Alpha Cutout.shader" />
+     <None Include="Assets\GoogleMobileAds\link.xml" />
      <None Include="Assets\SimplestMeshBaker\Readme.txt" />
      <None Include="Assets\Parkour\config.xml" />
      <None Include="Assets\Texture\NewUnlitShader.shader" />
@@ -248,6 +251,18 @@
     </Reference>
     <Reference Include="UnityEditor">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.21f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="GoogleMobileAds.Core">
+        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/GoogleMobileAds/GoogleMobileAds.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GoogleMobileAds.Common">
+        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/GoogleMobileAds/GoogleMobileAds.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="GoogleMobileAds">
+        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/GoogleMobileAds/GoogleMobileAds.dll</HintPath>
+    </Reference>
+    <Reference Include="GoogleMobileAds.Unity">
+        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/GoogleMobileAds/GoogleMobileAds.Unity.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.21f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -659,6 +674,10 @@
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{8a099af5-cbe3-b513-098f-19e6d92031b7}</Project>
       <Name>UnityEditor.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="GoogleMobileAds.Editor.csproj">
+      <Project>{49dad14b-f609-e0a1-2a6c-bac5730e2904}</Project>
+      <Name>GoogleMobileAds.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.ProBuilder.AddOns.Edi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{3b86650a-412e-5732-8726-fe5cfc73bca8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleMobileAds.Editor", "GoogleMobileAds.Editor.csproj", "{49dad14b-f609-e0a1-2a6c-bac5730e2904}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -106,6 +108,8 @@ Global
 		{329617ef-c712-6ccb-1de0-47069c097ff0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3b86650a-412e-5732-8726-fe5cfc73bca8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3b86650a-412e-5732-8726-fe5cfc73bca8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49dad14b-f609-e0a1-2a6c-bac5730e2904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49dad14b-f609-e0a1-2a6c-bac5730e2904}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

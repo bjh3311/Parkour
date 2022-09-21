@@ -38,7 +38,7 @@
   <ItemGroup>
      <Compile Include="Assets\SimplestMeshBaker\Editor\BonesBaker.cs" />
      <Compile Include="Assets\SimplestMeshBaker\Editor\MeshBaker.cs" />
-     <None Include="Assets\ExternalDependencyManager\Editor\external-dependency-manager_version-1.2.169_manifest.txt" />
+     <None Include="Assets\ExternalDependencyManager\Editor\external-dependency-manager_version-1.2.172_manifest.txt" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -237,17 +237,29 @@
     <Reference Include="Google.VersionHandler">
         <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/Google.VersionHandler.dll</HintPath>
     </Reference>
+    <Reference Include="Google.PackageManagerResolver">
+        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/1.2.172/Google.PackageManagerResolver.dll</HintPath>
+    </Reference>
     <Reference Include="Google.IOSResolver">
-        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/1.2.169/Google.IOSResolver.dll</HintPath>
+        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/1.2.172/Google.IOSResolver.dll</HintPath>
+    </Reference>
+    <Reference Include="GoogleMobileAds.Core">
+        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/GoogleMobileAds/GoogleMobileAds.Core.dll</HintPath>
     </Reference>
     <Reference Include="Google.JarResolver">
-        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/1.2.169/Google.JarResolver.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.PackageManagerResolver">
-        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/1.2.169/Google.PackageManagerResolver.dll</HintPath>
+        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/1.2.172/Google.JarResolver.dll</HintPath>
     </Reference>
     <Reference Include="Google.VersionHandlerImpl">
-        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/1.2.169/Google.VersionHandlerImpl.dll</HintPath>
+        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/ExternalDependencyManager/Editor/1.2.172/Google.VersionHandlerImpl.dll</HintPath>
+    </Reference>
+    <Reference Include="GoogleMobileAds.Common">
+        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/GoogleMobileAds/GoogleMobileAds.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="GoogleMobileAds">
+        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/GoogleMobileAds/GoogleMobileAds.dll</HintPath>
+    </Reference>
+    <Reference Include="GoogleMobileAds.Unity">
+        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/GoogleMobileAds/GoogleMobileAds.Unity.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
         <HintPath>C:/Users/ross2/Desktop/parkour/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
@@ -683,6 +695,10 @@
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{8a099af5-cbe3-b513-098f-19e6d92031b7}</Project>
       <Name>UnityEditor.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="GoogleMobileAds.Editor.csproj">
+      <Project>{49dad14b-f609-e0a1-2a6c-bac5730e2904}</Project>
+      <Name>GoogleMobileAds.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
