@@ -22,7 +22,7 @@ public class GoogleAD : MonoBehaviour
     }
     private void RequestInterstitial()//Interstitial은 전면광고라는 뜻이다. 전면광고를 요청하는 함수
     {
-        string adUnitId="ca-app-pub-3940256099942544/1033173712";//전면광고 테스트 ID
+        string adUnitId="ca-app-pub-3940256099942544/1033173712";//전면광고 ID
         this.interstitial=new InterstitialAd(adUnitId);//전면광고 초기화
 
         
