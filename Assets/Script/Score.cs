@@ -8,7 +8,7 @@ public class Score : MonoBehaviour
     private float score = 0.0f;
     private int difficultyLevel=1;
     private int maxDifficultyLevel=6;
-    private int scoreToNextLevel=50;//50점 기준으로 속도가 빨라진다
+    private int scoreToNextLevel=30;//30점 기준으로 속도가 빨라진다
 
     public Text scoreText;
     // Start is called before the first frame update
@@ -37,7 +37,7 @@ public class Score : MonoBehaviour
         {
             return;
         }
-        scoreToNextLevel+=50;
+        scoreToNextLevel+=30;
         difficultyLevel++;
         GameManager.instance.mapSpeed+=100;
     }
