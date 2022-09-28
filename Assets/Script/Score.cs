@@ -10,6 +10,8 @@ public class Score : MonoBehaviour
     private int maxDifficultyLevel=6;
     private int scoreToNextLevel=30;//30점 기준으로 속도가 빨라진다
 
+    private float cursorTime=0.15f;
+    public Image[] Up;
     public Text scoreText;
     // Start is called before the first frame update
     // Update is called once per frame
@@ -25,6 +27,7 @@ public class Score : MonoBehaviour
         }
         if(score>=scoreToNextLevel)
         {
+            StartCoroutine("SpeedUp");
             LevelUp();
         }   
         score+=Time.deltaTime;
@@ -40,5 +43,31 @@ public class Score : MonoBehaviour
         scoreToNextLevel+=30;
         difficultyLevel++;
         GameManager.instance.mapSpeed+=100;
+    }
+    IEnumerator SpeedUp()
+    {
+        int temp=3;
+        while(temp>0)
+        {
+            Up[3].gameObject.SetActive(true);
+            Up[7].gameObject.SetActive(true);
+            yield return new WaitForSecondsRealtime(cursorTime);
+            Up[2].gameObject.SetActive(true);
+            Up[6].gameObject.SetActive(true);
+            yield return new WaitForSecondsRealtime(cursorTime);
+            Up[1].gameObject.SetActive(true);
+            Up[5].gameObject.SetActive(true);
+            yield return new WaitForSecondsRealtime(cursorTime);
+            Up[0].gameObject.SetActive(true);
+            Up[4].gameObject.SetActive(true);
+            yield return new WaitForSecondsRealtime(cursorTime);
+            foreach(Image image in Up)//다 꺼준다
+            {
+                image.gameObject.SetActive(false);
+            }
+            yield return new WaitForSecondsRealtime(cursorTime);
+            temp--;
+        }
+        
     }
 }
