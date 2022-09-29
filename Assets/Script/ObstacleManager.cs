@@ -7,7 +7,7 @@ public class ObstacleManager : MonoBehaviour
     public GameObject[] ObsPrefabs;
     public Transform playerTransform;
     private float spawnZ=100f;
-    private int amountObsOnScreen=21;
+    private int amountObsOnScreen=27;
     public List<GameObject> activeObs;//화면에 나와있는 장애물들
     private List<GameObject> unactiveObs;
     private float ObsLength=200f;
@@ -17,7 +17,7 @@ public class ObstacleManager : MonoBehaviour
         activeObs=new List<GameObject>();
         unactiveObs=new List<GameObject>();
         GameObject temp;
-        for(int i=0;i<21;i++)//각 장애물이 3개씩 들어가있다
+        for(int i=0;i<amountObsOnScreen;i++)//각 장애물이 3개씩 들어가있다
         {
             for(int j=0;j<3;j++)
             {
@@ -26,7 +26,7 @@ public class ObstacleManager : MonoBehaviour
                unactiveObs.Add(temp);
             }
         }
-        for(int i=0;i<21;i++)
+        for(int i=0;i<amountObsOnScreen;i++)
         {
             SpawnObs();
         }

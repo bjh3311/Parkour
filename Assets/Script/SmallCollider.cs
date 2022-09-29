@@ -79,6 +79,14 @@ public class SmallCollider : MonoBehaviour
                 this.audio_control.other_source.PlayOneShot(audio_control.gold, 3f);
                 other.gameObject.SetActive(false);//오브젝트 풀링으로 구현하기 위해 SetActive(false)로 한다
             }
+            else if (other.tag=="tempt")
+            {
+                if(!GameManager.instance.is_Smoke)
+                {
+                    GameManager.instance.StartCoroutine("Smoking");
+                }
+                
+            }
         }
     }
 }

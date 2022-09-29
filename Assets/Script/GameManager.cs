@@ -32,7 +32,9 @@ public class GameManager : MonoBehaviour
     public GameObject Over_BG;
 
     public Image start_BG;//시작 모자이크 효과
+    public Image Smoke;
     private float threshold=0f;
+    private float smoking_threshold=1.01f;
 
     public float mapSpeed=0f;
 
@@ -42,6 +44,8 @@ public class GameManager : MonoBehaviour
 
     public CameraChase CameraScript;
 
+    public bool is_Smoke;//smoking효과가 되어있는가?
+
     private bool is_Start;//처음에 모자이크 효과가 끝난 후에 is_Start를 true로 바꿔준다
     void Awake()//싱글톤 패턴으로 구현
     {
@@ -49,7 +53,9 @@ public class GameManager : MonoBehaviour
         this.energy=350f;
         count=0;
         start_BG.material.SetFloat("_Threshold",0f);//처음엔 까맣게 시작
+        Smoke.material.SetFloat("_Threshold",1.01f);
         is_Start=false;
+        is_Smoke=false;
         StartCoroutine("Mozaic");
         Application.targetFrameRate=60;
         LeaderBoard=this.gameObject.GetComponent<LeaderBoard>();
@@ -173,6 +179,37 @@ public class GameManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.5f);
                 is_Start=true;
+                break;
+            }
+        }
+    }
+    IEnumerator Smoking()//안개 끼는 효과
+    {
+        is_Smoke=true;
+        while(true)
+        {
+            Smoke.material.SetFloat("_Threshold",smoking_threshold);
+            Debug.Log(smoking_threshold);
+            smoking_threshold=smoking_threshold-0.05f;
+            yield return new WaitForSeconds(0.05f);
+            if(smoking_threshold<=0.3f)
+            {
+                yield return new WaitForSecondsRealtime(5.0f);//4초동안 안개낀 상태
+                StartCoroutine("UnSmoking");
+                break;
+            }
+        }
+    }
+    IEnumerator UnSmoking()//안개 걷어내는 효과
+    {
+        while(true)
+        {
+            Smoke.material.SetFloat("_Threshold",smoking_threshold);
+            smoking_threshold=smoking_threshold+0.05f;
+            yield return new WaitForSeconds(0.05f);
+            if(smoking_threshold>=1.01f)
+            {
+                is_Smoke=false;
                 break;
             }
         }
