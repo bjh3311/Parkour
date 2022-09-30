@@ -58,12 +58,14 @@
      <Compile Include="Assets\Script\Audio_control.cs" />
      <Compile Include="Assets\Script\BigCollider.cs" />
      <Compile Include="Assets\Script\CameraChase.cs" />
-     <Compile Include="Assets\Script\GameManager.cs" />
+     <Compile Include="Assets\Script\GUI_Manager.cs" />
+     <Compile Include="Assets\Script\GUI_move.cs" />
      <Compile Include="Assets\Script\GoogleAD.cs" />
-     <Compile Include="Assets\Script\ItemManager.cs" />
      <Compile Include="Assets\Script\LeaderBoard.cs" />
-     <Compile Include="Assets\Script\MainManager.cs" />
-     <Compile Include="Assets\Script\MapManager.cs" />
+     <Compile Include="Assets\Script\Manager\GameManager.cs" />
+     <Compile Include="Assets\Script\Manager\ItemManager.cs" />
+     <Compile Include="Assets\Script\Manager\MainManager.cs" />
+     <Compile Include="Assets\Script\Manager\MapManager.cs" />
      <Compile Include="Assets\Script\ObstacleManager.cs" />
      <Compile Include="Assets\Script\Player.cs" />
      <Compile Include="Assets\Script\Score.cs" />
@@ -252,11 +254,11 @@
     <Reference Include="UnityEditor">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.21f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="GoogleMobileAds.Core">
-        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/GoogleMobileAds/GoogleMobileAds.Core.dll</HintPath>
-    </Reference>
     <Reference Include="GoogleMobileAds.Common">
         <HintPath>C:/Users/ross2/Desktop/parkour/Assets/GoogleMobileAds/GoogleMobileAds.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="GoogleMobileAds.Core">
+        <HintPath>C:/Users/ross2/Desktop/parkour/Assets/GoogleMobileAds/GoogleMobileAds.Core.dll</HintPath>
     </Reference>
     <Reference Include="GoogleMobileAds">
         <HintPath>C:/Users/ross2/Desktop/parkour/Assets/GoogleMobileAds/GoogleMobileAds.dll</HintPath>
@@ -663,6 +665,10 @@
       <Project>{e3877d41-793a-23c7-af55-d4bdae3b3e89}</Project>
       <Name>Unity.Mobile.AndroidLogcat.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="GoogleMobileAds.Editor.csproj">
+      <Project>{49dad14b-f609-e0a1-2a6c-bac5730e2904}</Project>
+      <Name>GoogleMobileAds.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.ProBuilder.AddOns.Editor.csproj">
       <Project>{329617ef-c712-6ccb-1de0-47069c097ff0}</Project>
       <Name>Unity.ProBuilder.AddOns.Editor</Name>
@@ -674,10 +680,6 @@
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{8a099af5-cbe3-b513-098f-19e6d92031b7}</Project>
       <Name>UnityEditor.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="GoogleMobileAds.Editor.csproj">
-      <Project>{49dad14b-f609-e0a1-2a6c-bac5730e2904}</Project>
-      <Name>GoogleMobileAds.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
