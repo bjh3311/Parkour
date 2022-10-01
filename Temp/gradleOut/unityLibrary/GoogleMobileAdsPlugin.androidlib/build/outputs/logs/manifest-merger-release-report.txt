@@ -1,0 +1,57 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:2:1-9:12
+INJECTED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:2:1-9:12
+INJECTED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:2:1-9:12
+INJECTED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:2:1-9:12
+INJECTED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:2:1-9:12
+INJECTED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:2:1-9:12
+INJECTED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:2:1-9:12
+	package
+		ADDED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:2:70-100
+		INJECTED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml
+		INJECTED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml
+	android:versionName
+		ADDED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:2:101-126
+		INJECTED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml
+		INJECTED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:2:127-150
+		INJECTED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml
+		INJECTED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml
+application
+ADDED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:3:3-8:17
+uses-library#org.apache.http.legacy
+ADDED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:4:5-84
+	android:required
+		ADDED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:4:19-43
+	android:name
+		ADDED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:4:44-81
+meta-data#com.google.android.gms.ads.APPLICATION_ID
+ADDED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:5:5-130
+	android:value
+		ADDED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:5:73-127
+	android:name
+		ADDED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:5:16-72
+meta-data#com.google.android.gms.ads.flag.OPTIMIZE_INITIALIZATION
+ADDED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:6:5-110
+	android:value
+		ADDED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:6:87-107
+	android:name
+		ADDED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:6:16-86
+meta-data#com.google.android.gms.ads.flag.OPTIMIZE_AD_LOADING
+ADDED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:7:5-106
+	android:value
+		ADDED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:7:83-103
+	android:name
+		ADDED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml:7:16-82
+uses-sdk
+INJECTED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml
+INJECTED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml
+		ADDED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml
+		INJECTED from C:\Users\ross2\Desktop\parkour\Temp\gradleOut\unityLibrary\GoogleMobileAdsPlugin.androidlib\AndroidManifest.xml

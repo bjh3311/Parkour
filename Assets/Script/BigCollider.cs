@@ -42,7 +42,7 @@ public class BigCollider : MonoBehaviour
                 this.audio_control.other_source.PlayOneShot(audio_control.gold, 3f);
                 other.gameObject.SetActive(false);//오브젝트 풀링으로 구현하기 위해 SetActive(false)로 한다
             }
-            else if (other.tag == "lan")
+            else if (other.tag == "zhu")
             {   
                 GUI_move move = new GUI_move(textures[1], other.transform.position,140f);
                 GameManager.instance.GUI_move_list.Add(move);
@@ -60,8 +60,10 @@ public class BigCollider : MonoBehaviour
             {
                 if(!GameManager.instance.is_Smoke)
                 {
+                    this.audio_control.other_source.PlayOneShot(audio_control.tempt_collision,8f);
                     GameManager.instance.StartCoroutine("Smoking");
                 }
+                
             }   
         }
         

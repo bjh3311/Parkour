@@ -22,4 +22,5 @@ public class Audio_control : MonoBehaviour {
     public AudioClip jump;
     public AudioClip tempt_collision;
     public AudioClip SpeedUp;
+
 }

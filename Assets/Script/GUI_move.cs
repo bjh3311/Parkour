@@ -51,17 +51,17 @@ public class GUI_move
             //绘制图片
             GUI.DrawTexture(this.rect, this.texture);
 
-            this.y -= 5 * unit;  //y轴匀速
+            this.y -= 3 * unit;  //y轴匀速
             this.x = Mathf.Sqrt(this.y / a);//todo 这里应该是一个抛物线公式
 
-            this.width -= 2 * unit;
-            this.height -= 2 * unit;
+            this.width -= 1 * unit;
+            this.height -= 1 * unit;
 
             //初始化绘制矩形
             this.rect = new Rect(this.x, this.y, this.width, this.height);
 
             //위치가 화면밖을 벗어나는지 확인한다
-            if (this.x <= 0 || this.width <= 0)
+            if (this.x <= 150 || this.width <= 50)
             {
                 this.is_dead = true;
             }

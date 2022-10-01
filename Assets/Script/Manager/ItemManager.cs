@@ -52,7 +52,7 @@ public class ItemManager : MonoBehaviour
     }
     private void DeleteObs()
     {
-        unactiveItem.Add(activeItem[0]);//맨앞의 맵을 unactiveMap 리스트에 추가해준다
+        unactiveItem.Add(activeItem[0]);//맨앞의 item을 unactiveItem 리스트에 추가해준다
         activeItem[0].SetActive(false);
         activeItem.RemoveAt(0);
     }

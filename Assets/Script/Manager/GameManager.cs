@@ -113,12 +113,15 @@ public class GameManager : MonoBehaviour
             Camera.main.pixelWidth / 2, Camera.main.pixelHeight / 2), num_3);
             if (count == 181)
             {
+                CameraScript.enabled=true;
+                this.audio_control.other_source.PlayOneShot(this.audio_control.di, 1f);
+            }
+            if(count==185)
+            {
                 foreach(GameObject temp in UI)
                 {
                     temp.gameObject.SetActive(true);
                 }
-                CameraScript.enabled=true;
-                this.audio_control.other_source.PlayOneShot(this.audio_control.di, 1f);
             }
         }
         else if (count > 280 && count < 380)
@@ -203,12 +206,11 @@ public class GameManager : MonoBehaviour
         while(true)
         {
             Smoke.material.SetFloat("_Threshold",smoking_threshold);
-            Debug.Log(smoking_threshold);
             smoking_threshold=smoking_threshold-0.05f;
             yield return new WaitForSeconds(0.05f);
             if(smoking_threshold<=0.3f)
             {
-                yield return new WaitForSecondsRealtime(5.0f);//4초동안 안개낀 상태
+                yield return new WaitForSecondsRealtime(4.0f);//4초동안 안개낀 상태
                 StartCoroutine("UnSmoking");
                 break;
             }
