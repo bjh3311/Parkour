@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
-    public static GameManager instance=null;
+    
     public float energy;                       //에너지
     public Audio_control audio_control;    //오디오 컨트롤
     public Player player_control;  //控制游戏主角的脚本对象
@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     private bool is_Start;//처음에 모자이크 효과가 끝난 후에 is_Start를 true로 바꿔준다
 
     public float unit;//GUI 단위 길이
+    public static GameManager instance=null;
     void Awake()//싱글톤 패턴으로 구현
     {
         instance=this;

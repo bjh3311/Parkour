@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -9,6 +10,16 @@ using UnityEngine.SocialPlatforms;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 
+using System.IO;
+
+public class User
+{
+    public bool isNew;
+    public User(bool isNew)
+    {
+        this.isNew=isNew;
+    }
+}
 public class MainManager : MonoBehaviour
 {
     public Transform player_transform;
@@ -38,7 +49,17 @@ public class MainManager : MonoBehaviour
                 Debug.Log(Social.localUser.id);
             }
         });//시작할때 Authenticate를 해줘야 리더보드에 접근 할 수 있다.
-        
+        string pAsset;
+        try
+        {
+            pAsset=File.ReadAllText(Application.persistentDataPath+"/User.json");
+        }
+        catch(Exception ex)//처음접속에서 null exception이 발생한다면 isNew값이 true인 Json데이터 만들어준다
+        {
+            User u=new User(true);
+            string temp=JsonUtility.ToJson(u);
+            File.WriteAllText(Application.persistentDataPath+"/User.json",temp);//json 저장
+        }//처음 접속하지 않았다면 따로 만들진 않는다
     }
     public void GameStart()
     {
@@ -125,7 +146,15 @@ public class MainManager : MonoBehaviour
     }
     private IEnumerator Load()//씬 불러오기
     {
-        AsyncOperation op=SceneManager.LoadSceneAsync("Stage");
+        AsyncOperation op;
+        if(LoadJsonData())//처음이라면 튜토리얼 화면을 로드한다
+        {
+            op=SceneManager.LoadSceneAsync("Tutorial");
+        }
+        else
+        {
+            op=SceneManager.LoadSceneAsync("Stage");
+        }
         //비동기 방식으로 씬을 불러오는 도중에도 다른 작업을 할 수  LoadSceneAsync 함수
         //로딩의 진행정도는 AsyncOperation Class로 반환된다
         op.allowSceneActivation=false;//로딩이 끝나면 씬을 바로 시작 못하게 한다
@@ -154,6 +183,11 @@ public class MainManager : MonoBehaviour
            
         }    
     }
-    
-
+    private bool LoadJsonData()//경로 기반 json 불러오기
+    {
+        string pAsset;
+        pAsset=File.ReadAllText(Application.persistentDataPath+"/User.json");
+        User temp=JsonUtility.FromJson<User>(pAsset);
+        return temp.isNew;
+    }
 }
