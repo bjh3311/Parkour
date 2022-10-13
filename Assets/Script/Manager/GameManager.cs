@@ -4,6 +4,8 @@ using UnityEngine.UI;
 using System;
 using UnityEngine.SceneManagement;
 
+using System.IO;
+
 
 
 public class GameManager : MonoBehaviour
@@ -180,10 +182,16 @@ public class GameManager : MonoBehaviour
     }
     public void Restart()
     {
+        User u=new User(false);
+        string temp=JsonUtility.ToJson(u);
+        File.WriteAllText(Application.persistentDataPath+"/User.json",temp);//json 저장
         SceneManager.LoadScene("Stage");
     }
     public void Quit()
     {
+        User u=new User(false);
+        string temp=JsonUtility.ToJson(u);
+        File.WriteAllText(Application.persistentDataPath+"/User.json",temp);//json 저장
         SceneManager.LoadScene("Main");
     }
     IEnumerator Mozaic()

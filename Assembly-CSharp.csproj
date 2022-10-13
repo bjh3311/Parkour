@@ -66,7 +66,8 @@
      <Compile Include="Assets\Script\Manager\ItemManager.cs" />
      <Compile Include="Assets\Script\Manager\MainManager.cs" />
      <Compile Include="Assets\Script\Manager\MapManager.cs" />
-     <Compile Include="Assets\Script\ObstacleManager.cs" />
+     <Compile Include="Assets\Script\Manager\ObstacleManager.cs" />
+     <Compile Include="Assets\Script\Manager\TutorialManager.cs" />
      <Compile Include="Assets\Script\Player.cs" />
      <Compile Include="Assets\Script\Score.cs" />
      <Compile Include="Assets\Script\SmallCollider.cs" />

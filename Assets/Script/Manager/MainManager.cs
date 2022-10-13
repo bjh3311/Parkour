@@ -59,7 +59,7 @@ public class MainManager : MonoBehaviour
             User u=new User(true);
             string temp=JsonUtility.ToJson(u);
             File.WriteAllText(Application.persistentDataPath+"/User.json",temp);//json 저장
-        }//처음 접속하지 않았다면 따로 만들진 않는다
+        }//처음 접속하지 않았다면 따로 만들진 않는
     }
     public void GameStart()
     {
