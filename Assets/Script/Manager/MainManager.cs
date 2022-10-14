@@ -35,6 +35,7 @@ public class MainManager : MonoBehaviour
     public Image Bar_BG;
     public Image Bar;
     public Text Ranking;
+
     void Start()
     {
         Time.timeScale=1f;
@@ -49,17 +50,10 @@ public class MainManager : MonoBehaviour
                 Debug.Log(Social.localUser.id);
             }
         });//시작할때 Authenticate를 해줘야 리더보드에 접근 할 수 있다.
-        string pAsset;
-        try
+        if(!PlayerPrefs.HasKey("isNew"))//isNew라는 Key가없다면, 즉 다운받고 처음 실행이라면
         {
-            pAsset=File.ReadAllText(Application.persistentDataPath+"/User.json");
+            PlayerPrefs.SetInt("isNew",1);//1은 첫판이라는 뜻이다
         }
-        catch(Exception ex)//처음접속에서 null exception이 발생한다면 isNew값이 true인 Json데이터 만들어준다
-        {
-            User u=new User(true);
-            string temp=JsonUtility.ToJson(u);
-            File.WriteAllText(Application.persistentDataPath+"/User.json",temp);//json 저장
-        }//처음 접속하지 않았다면 따로 만들진 않는
     }
     public void GameStart()
     {
@@ -147,7 +141,7 @@ public class MainManager : MonoBehaviour
     private IEnumerator Load()//씬 불러오기
     {
         AsyncOperation op;
-        if(LoadJsonData())//처음이라면 튜토리얼 화면을 로드한다
+        if(PlayerPrefs.GetInt("isNew")==1)//처음이라면 튜토리얼 화면을 로드한다
         {
             op=SceneManager.LoadSceneAsync("Tutorial");
         }
@@ -183,11 +177,5 @@ public class MainManager : MonoBehaviour
            
         }    
     }
-    private bool LoadJsonData()//경로 기반 json 불러오기
-    {
-        string pAsset;
-        pAsset=File.ReadAllText(Application.persistentDataPath+"/User.json");
-        User temp=JsonUtility.FromJson<User>(pAsset);
-        return temp.isNew;
-    }
+
 }
