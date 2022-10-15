@@ -107,6 +107,10 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
+        if(Time.timeScale==0)//정지 상태면 
+        {
+            return ;
+        }
         //3,2,1 카운트 다운
         #region
         count++;

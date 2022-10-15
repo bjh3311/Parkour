@@ -9,33 +9,33 @@ public class TutorialManager : MonoBehaviour
     public GameObject Left;
     public GameObject Right;
     public GameObject Tuto_BG;
+
     void Update()
     {
 
-        if (GameManager.instance.count ==600)
+        if (GameManager.instance.count ==500)
         {
-            StartCoroutine("Activate",Left);
-            StartCoroutine("Activate",Right);
+            Left.SetActive(true);
+            Right.SetActive(true);
         }
-        else if (GameManager.instance.count ==1100  )
+        else if (GameManager.instance.count ==1000  )
         {
-            StartCoroutine("Activate",Jump);
+            Left.SetActive(false);
+            Right.SetActive(false);
+            Jump.SetActive(true);
         }
-        else if (GameManager.instance.count ==1600)
+        else if (GameManager.instance.count ==1500)
         {
-            StartCoroutine("Activate",Slide);
+            Jump.SetActive(false);
+            Slide.SetActive(true);
         }
-        else if (GameManager.instance.count==2100)
+        else if (GameManager.instance.count==2050)
         {
+            GameManager.instance.count++;
+            Slide.SetActive(false);
             Time.timeScale=0f;
             Tuto_BG.SetActive(true);
         }
-    }
-    IEnumerator Activate(GameObject temp)
-    {
-        temp.SetActive(true);
-        yield return new WaitForSecondsRealtime(3.5f);
-        temp.SetActive(false);
     }
     public void Resume()
     {
