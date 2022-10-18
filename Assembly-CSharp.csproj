@@ -58,6 +58,7 @@
      <Compile Include="Assets\Script\Audio_control.cs" />
      <Compile Include="Assets\Script\BigCollider.cs" />
      <Compile Include="Assets\Script\CameraChase.cs" />
+     <Compile Include="Assets\Script\FPS.cs" />
      <Compile Include="Assets\Script\GUI_Manager.cs" />
      <Compile Include="Assets\Script\GUI_move.cs" />
      <Compile Include="Assets\Script\GoogleAD.cs" />

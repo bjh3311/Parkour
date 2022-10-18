@@ -29,7 +29,7 @@ public class TutorialManager : MonoBehaviour
             Jump.SetActive(false);
             Slide.SetActive(true);
         }
-        else if (GameManager.instance.count==2050)
+        else if (GameManager.instance.count==2100)
         {
             GameManager.instance.count++;
             Slide.SetActive(false);
