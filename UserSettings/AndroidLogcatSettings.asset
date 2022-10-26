@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "LMG900N6e5d62e2",
         "name": "com.Redtiger.Parkour3D",
-        "processId": 5845,
+        "processId": 4282,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -66,6 +66,12 @@
             "deviceId": "LMG900N6e5d62e2",
             "name": "com.Redtiger.Parkour3D",
             "processId": 5845,
+            "exited": false
+        },
+        {
+            "deviceId": "LMG900N6e5d62e2",
+            "name": "com.Redtiger.Parkour3D",
+            "processId": 4282,
             "exited": false
         }
     ],

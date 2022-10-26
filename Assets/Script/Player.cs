@@ -5,7 +5,6 @@ public enum Status//상태
 {
     run_forward,
     kneel,
-    stumble,
     Left,
     Right,
     Up,
@@ -45,6 +44,7 @@ public class Player : MonoBehaviour
             return;
         }
         this.transform.position=new Vector3(transform.position.x,transform.position.y,transform.position.z+GameManager.instance.mapSpeed*Time.deltaTime);
+        //player는 뭐가 됐든 계속 앞으로 나아간다.
         #region 좌우로 움직임
         //방향 전환하는 구문 , 한번에 순간이동이 아닌 x_speed만큼 딱딱딱 이동하기 위한 구문이다 
         if (this.current_way != this.target_way)
@@ -58,7 +58,6 @@ public class Player : MonoBehaviour
                 this.transform.position = new Vector3(transform.position.x + this.x_move_left, transform.position.y,
                     transform.position.z);
 
-                //变更当前跑道
                 this.current_way = this.target_way;//방향을 맞춰준다
                 this.stat = Status.run_forward;
                 //모든 이동이 끝나야만 Left나 Right상태에서 run_forward상태로 만들어준다
@@ -75,12 +74,10 @@ public class Player : MonoBehaviour
             {
                 if ((jump_height - havejump_height) < 0.5f || this.transform.position.y > (this.jump_height + 0.5f))//고점에 다다르면
                 {
-                    this.transform.position = new Vector3(this.transform.position.x, this.jump_height, this.transform.position.z);
-                    //this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + (jump_height - havejump_height), this.transform.position.z);  
+                    this.transform.position = new Vector3(this.transform.position.x, this.jump_height, this.transform.position.z); 
                     isUp = false;
                     havejump_height = jump_height;//최대 높이에 도달하였다
                     this.transform.position = new Vector3(transform.position.x, jump_height, this.transform.position.z);
-                    //this.transform.position = new Vector3(this.transform.position.x, havejump_height, this.transform.position.z);
                     return;
                 }
                 havejump_height += yMove;
@@ -90,15 +87,9 @@ public class Player : MonoBehaviour
                 if (this.transform.position.y < -0.5f)
                 {
                     this.transform.position = new Vector3(this.transform.position.x, 0, this.transform.position.z);
-
-                    havejump_height = 0;//已经达到最小高度，将高度赋值
-
-                    //位移状态
+                    havejump_height = 0;//땅바닥에 닿으면 
                     this.stat = Status.run_forward;
-
-                    //是否是向上跳
                     isUp = true;
-
                     return;
                 }
                 yMove=yMove+1.5f;
@@ -108,48 +99,10 @@ public class Player : MonoBehaviour
         }
         #endregion
 
-        #region
-        if (Input.GetKeyDown(KeyCode.W))//점프
-        {
-            this.move_up_animation();
-        }
-        else if (Input.GetKey(KeyCode.S))//슬라이드는 누르는동안 계속 실행
-        {
-            //run상태일 때만 slide를 할 수 있다.
-            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("run")&& this.stat == Status.run_forward)
-            {
-                
-                this.animator.SetBool("isSlide",true);
-                this.audio_control.player_source.clip=this.audio_control.slide;
-                this.audio_control.player_source.loop=true;//슬라이드 하는동안엔 계속 소리가 들려야한다
-                this.audio_control.player_source.Play();
-            }
-        }
-        else if(Input.GetKeyUp(KeyCode.S))//슬라이드버튼을 떼어 냈을 때
-        {
-            //slide 상태일 때만 작동
-            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("slide")&& this.stat == Status.Down)
-            {
-                this.animator.SetBool("isSlide",false);
-                this.audio_control.player_source.clip=null;
-                this.audio_control.player_source.loop=false;//슬라이드가 끝나면 loop를 꺼준다
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))//왼쪽
-        {
-            this.move_left_animation();
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))//오른쪽
-        {
-            this.move_right_animation();
-        }
-        #endregion
-
-
         #region 누워있을때의 상태변환 함수
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("slide"))
         {
-            //位移状态
+            
             this.stat = Status.Down;
         }
         else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("run") && this.stat == Status.Down)

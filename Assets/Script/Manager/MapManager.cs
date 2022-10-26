@@ -6,9 +6,9 @@ public class MapManager : MonoBehaviour
 {
     public GameObject[] MapPrefabs;
     public Transform playerTransform;
-    private float spawnZ=12700f;
+    private float spawnZ=6700f;
     private float MapLength=3000f;
-    private int amountMapOnScreen=4;
+    private int amountMapOnScreen=2;//현재 Spawn되어 있는 Map의 개수
 
     public List<GameObject> activeMap;//화면에 나와있는 
     private List<GameObject> unactiveMap;
@@ -28,8 +28,6 @@ public class MapManager : MonoBehaviour
         }
         activeMap.Add(MapPrefabs[0]);
         activeMap.Add(MapPrefabs[1]);
-        activeMap.Add(MapPrefabs[2]);
-        activeMap.Add(MapPrefabs[3]);
     }
     // Update is called once per frame
     void Update()
