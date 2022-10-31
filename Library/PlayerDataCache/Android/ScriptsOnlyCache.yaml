@@ -8,11 +8,9 @@ ScriptsOnlyBuild:
     - GUI_Manager
     - GameManager
     - GoogleAD
-    - ItemManager
     - LeaderBoard
     - MainManager
-    - MapManager
-    - ObstacleManager
+    - ObjManager
     - Player
     - Score
     - SmallCollider
@@ -97,21 +95,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11456}
     - Class: 114
-      Script: {instanceID: 11722}
+      Script: {instanceID: 11724}
     - Class: 114
-      Script: {instanceID: 12264}
+      Script: {instanceID: 12262}
     - Class: 114
-      Script: {instanceID: 12372}
+      Script: {instanceID: 12370}
     - Class: 114
-      Script: {instanceID: 12402}
+      Script: {instanceID: 12400}
     - Class: 114
-      Script: {instanceID: 12456}
+      Script: {instanceID: 12452}
     - Class: 114
-      Script: {instanceID: 12976}
+      Script: {instanceID: 12972}
     - Class: 114
-      Script: {instanceID: 13796}
+      Script: {instanceID: 13792}
     - Class: 114
-      Script: {instanceID: 14406}
+      Script: {instanceID: 14402}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -182,51 +180,47 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11456}
     - Class: 114
-      Script: {instanceID: 11596}
+      Script: {instanceID: 11572}
     - Class: 114
-      Script: {instanceID: 11722}
+      Script: {instanceID: 11598}
     - Class: 114
-      Script: {instanceID: 11982}
+      Script: {instanceID: 11724}
     - Class: 114
-      Script: {instanceID: 12022}
+      Script: {instanceID: 12056}
     - Class: 114
-      Script: {instanceID: 12058}
+      Script: {instanceID: 12098}
     - Class: 114
-      Script: {instanceID: 12100}
+      Script: {instanceID: 12262}
     - Class: 114
-      Script: {instanceID: 12264}
+      Script: {instanceID: 12370}
     - Class: 114
-      Script: {instanceID: 12372}
+      Script: {instanceID: 12400}
     - Class: 114
-      Script: {instanceID: 12402}
+      Script: {instanceID: 12834}
     - Class: 114
-      Script: {instanceID: 12436}
+      Script: {instanceID: 13052}
     - Class: 114
-      Script: {instanceID: 12838}
+      Script: {instanceID: 13084}
     - Class: 114
-      Script: {instanceID: 13056}
+      Script: {instanceID: 13338}
     - Class: 114
-      Script: {instanceID: 13088}
+      Script: {instanceID: 13366}
     - Class: 114
-      Script: {instanceID: 13342}
+      Script: {instanceID: 13502}
     - Class: 114
-      Script: {instanceID: 13370}
+      Script: {instanceID: 13682}
     - Class: 114
-      Script: {instanceID: 13506}
+      Script: {instanceID: 13792}
     - Class: 114
-      Script: {instanceID: 13686}
+      Script: {instanceID: 14016}
     - Class: 114
-      Script: {instanceID: 13796}
+      Script: {instanceID: 14030}
     - Class: 114
-      Script: {instanceID: 14020}
+      Script: {instanceID: 14340}
     - Class: 114
-      Script: {instanceID: 14034}
+      Script: {instanceID: 14402}
     - Class: 114
-      Script: {instanceID: 14344}
-    - Class: 114
-      Script: {instanceID: 14406}
-    - Class: 114
-      Script: {instanceID: 14420}
+      Script: {instanceID: 14416}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -309,51 +303,47 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11456}
     - Class: 114
-      Script: {instanceID: 11596}
+      Script: {instanceID: 11572}
     - Class: 114
-      Script: {instanceID: 11722}
+      Script: {instanceID: 11598}
     - Class: 114
-      Script: {instanceID: 11982}
+      Script: {instanceID: 11724}
     - Class: 114
-      Script: {instanceID: 12022}
+      Script: {instanceID: 12056}
     - Class: 114
-      Script: {instanceID: 12058}
+      Script: {instanceID: 12098}
     - Class: 114
-      Script: {instanceID: 12100}
+      Script: {instanceID: 12262}
     - Class: 114
-      Script: {instanceID: 12264}
+      Script: {instanceID: 12370}
     - Class: 114
-      Script: {instanceID: 12372}
+      Script: {instanceID: 12400}
     - Class: 114
-      Script: {instanceID: 12402}
+      Script: {instanceID: 12834}
     - Class: 114
-      Script: {instanceID: 12436}
+      Script: {instanceID: 13052}
     - Class: 114
-      Script: {instanceID: 12838}
+      Script: {instanceID: 13084}
     - Class: 114
-      Script: {instanceID: 13056}
+      Script: {instanceID: 13338}
     - Class: 114
-      Script: {instanceID: 13088}
+      Script: {instanceID: 13366}
     - Class: 114
-      Script: {instanceID: 13342}
+      Script: {instanceID: 13470}
     - Class: 114
-      Script: {instanceID: 13370}
+      Script: {instanceID: 13502}
     - Class: 114
-      Script: {instanceID: 13474}
+      Script: {instanceID: 13682}
     - Class: 114
-      Script: {instanceID: 13506}
+      Script: {instanceID: 13792}
     - Class: 114
-      Script: {instanceID: 13686}
+      Script: {instanceID: 14016}
     - Class: 114
-      Script: {instanceID: 13796}
+      Script: {instanceID: 14340}
     - Class: 114
-      Script: {instanceID: 14020}
+      Script: {instanceID: 14402}
     - Class: 114
-      Script: {instanceID: 14344}
-    - Class: 114
-      Script: {instanceID: 14406}
-    - Class: 114
-      Script: {instanceID: 14420}
+      Script: {instanceID: 14416}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -423,6 +413,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_Dropdown
+  - hash:
+      serializedVersion: 2
+      Hash: c32bd242fcf4a33a1cbe19ecc1f6da7b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ObjManager
   - hash:
       serializedVersion: 2
       Hash: 76bcae8519e81694401c4d36d4f9cd97
@@ -545,18 +541,6 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 457ec72c33590f9c7513797e2e6abc28
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ItemManager
-  - hash:
-      serializedVersion: 2
-      Hash: 18af64221eb3c5107089cbec4d07b0b7
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ObstacleManager
-  - hash:
-      serializedVersion: 2
       Hash: 05655f7deb066a961c41619ac9e98263
     assemblyName: Unity.ProBuilder.dll
     namespaceName: UnityEngine.ProBuilder
@@ -657,12 +641,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ControlPlayableAsset
-  - hash:
-      serializedVersion: 2
-      Hash: 533769eacca43b1242b8b2ec8a21317d
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MapManager
   - hash:
       serializedVersion: 2
       Hash: 66306809f5dbf3dbac295cb82089b25b
