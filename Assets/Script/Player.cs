@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public enum Status//상태 
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
             return;
         }
         this.transform.position=new Vector3(transform.position.x,transform.position.y,transform.position.z+GameManager.instance.mapSpeed*Time.deltaTime);
-        //player는 뭐가 됐든 계속 앞으로 나아간다.
+        //player는 무슨 상태가 됐든 계속 앞으로 나아간다.
         #region 좌우로 움직임
         //방향 전환하는 구문 , 한번에 순간이동이 아닌 x_speed만큼 딱딱딱 이동하기 위한 구문이다 
         if (this.current_way != this.target_way)

@@ -64,10 +64,8 @@
      <Compile Include="Assets\Script\GoogleAD.cs" />
      <Compile Include="Assets\Script\LeaderBoard.cs" />
      <Compile Include="Assets\Script\Manager\GameManager.cs" />
-     <Compile Include="Assets\Script\Manager\ItemManager.cs" />
      <Compile Include="Assets\Script\Manager\MainManager.cs" />
-     <Compile Include="Assets\Script\Manager\MapManager.cs" />
-     <Compile Include="Assets\Script\Manager\ObstacleManager.cs" />
+     <Compile Include="Assets\Script\Manager\ObjManager.cs" />
      <Compile Include="Assets\Script\Manager\TutorialManager.cs" />
      <Compile Include="Assets\Script\Player.cs" />
      <Compile Include="Assets\Script\Score.cs" />
@@ -662,6 +660,10 @@
     <ProjectReference Include="Google.Play.Games.Editor.csproj">
       <Project>{fb82522b-5876-3777-5113-3c610c0ebea1}</Project>
       <Name>Google.Play.Games.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Sprite.Editor.csproj">
+      <Project>{9c947542-0448-71bc-18ed-9cd65da4860a}</Project>
+      <Name>Unity.2D.Sprite.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Mobile.AndroidLogcat.Editor.csproj">
       <Project>{e3877d41-793a-23c7-af55-d4bdae3b3e89}</Project>
