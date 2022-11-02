@@ -15,6 +15,8 @@ ScriptsOnlyBuild:
     - Score
     - SmallCollider
     - TutorialManager
+    GoogleMobileAds.Common.dll:
+    - GoogleMobileAds.Common.MobileAdsEventExecutor
     GoogleMobileAds.Editor.dll:
     - GoogleMobileAds.Editor.GoogleMobileAdsSettings
     Unity.Mobile.AndroidLogcat.Editor.dll:
@@ -1078,4 +1080,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Main.unity
   - Assets/Scenes/Stage.unity
   - Assets/Scenes/Tutorial.unity
-  playerPath: C:/Users/ross2/Desktop/FInal.aab
+  playerPath: C:/Users/ross2/Desktop/Final.aab
